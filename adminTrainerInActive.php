@@ -123,6 +123,7 @@ if (!isset($_SESSION["admin_email"])) {
                 <td><?php echo $row['cover_letter']; ?></td>
                 <td><img src="<?php echo $row['resume']; ?>" alt=""></td>
 
+             
                 <td>
                     <form method="post" action="activeTrainer.php">
 
@@ -136,15 +137,7 @@ if (!isset($_SESSION["admin_email"])) {
                         <input type="hidden" name="resume" value="<?php echo $row['resume']; ?>">
                         <input type="hidden" name="join_date" value="<?php echo $row['join_date']; ?>">
 
-                        <button type="submit" name="submit">activate</button>
-                    </form>
-                </td>
-                <td>
-                    <form method="post" action="blocktrainer.php">
-
-                        <input type="hidden" name="trainer_id" value="<?php echo $row['trainer_id']; ?>">
-
-                        <button type="submit" name="submit">Block</button>
+                        <button type="submit" name="submit">Activate</button>
                     </form>
                 </td>
 

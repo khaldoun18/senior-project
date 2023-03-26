@@ -79,77 +79,77 @@ if (!isset($_SESSION["admin_email"])) {
     <h1>Active Trainers </h1>
     <table>
     
-        <tbody>
-            <!-- Use a loop to iterate over the result set and display each row in a table row -->
-            <?php
-     require_once "connection.php";
-     $sql = "SELECT * FROM trainer where approved=1";
-     $result=$conn->query($sql);
-     if ($result && mysqli_num_rows($result) > 0) {
-        // if there are rows, show the table header
-        echo "<thead>
+    <table class="table table-bordered">
+    <?php
+        require_once "connection.php";
+        $sql = "SELECT * FROM trainer where approved=1";
+        $result=$conn->query($sql);
+        if ($result && mysqli_num_rows($result) > 0) {
+            // if there are rows, show the table header
+            echo "<thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Trainer Id</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Specialization</th>
+                        <th>Years of Experience</th>
+                        <th>Approved</th>
+                        <th>Join Date</th>
+                        <th>Cover Letter</th>
+                        <th>Resume</th>
+                        <th>Add</th>
+                        <th>Reject</th>
+                    </tr>
+                  </thead>";
+        }
+        else{
+            echo "<thead>
+                    <tr>
+                        <th colspan='13'>There are no Active trainer</th>
+                    </tr>
+                  </thead>";
+        }
+    ?>
+    <tbody>
+        <?php 
+            foreach($result as $row): ?>
                 <tr>
-                <th>Image</th>
-                <th>Trainer Id</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Specialization</th>
-                <th>yoe</th>
-                <th>Approved</th>
-                <th>Join Date</th>
-                <th>coverletter</th>
-                <th>Resme</th>
+                    <td><img src="<?php echo $row['image']; ?>" alt=""></td>
+                    <td><?php echo $row['trainer_id']; ?></td>
+                    <td><?php echo $row['name']; ?></td>
+                    <td><?php echo $row['trainer_email']; ?></td>
+                    <td><?php echo $row['phone']; ?></td>
+                    <td><?php echo $row['specialization']; ?></td>
+                    <td><?php echo $row['yoe']; ?></td>
+                    <td><?php echo $row['approved']; ?></td>
+                    <td><?php echo $row['join_date']; ?></td>
+                    <td><?php echo $row['cover_letter']; ?></td>
+                    <td><img src="<?php echo $row['resume']; ?>" alt=""></td>
+                    <td>
+                        <form method="post" action="addTrainer.php">
+                            <input type="hidden" name="trainer_id" value="<?php echo $row['trainer_id']; ?>">
+                            <input type="hidden" name="name" value="<?php echo $row['name']; ?>">
+                            <input type="hidden" name="trainer_email" value="<?php echo $row['trainer_email']; ?>">
+                            <input type="hidden" name="phone" value="<?php echo $row['phone']; ?>">
+                            <input type="hidden" name="password" value="<?php echo $row['password']; ?>">
+                            <input type="hidden" name="gender" value="<?php echo $row['yoe']; ?>">
+                            <input type="hidden" name="image" value="<?php echo $row['image']; ?>">
+                            <input type="hidden" name="resume" value="<?php echo $row['resume']; ?>">
+                            <input type="hidden" name="join_date" value="<?php echo $row['join_date']; ?>">
+                            <button type="submit" name="submit" class="btn btn-primary btn-sm">Add</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form method="post" action="deleteTrainer.php">
+                            <input type="hidden" name="trainer_id" value="<?php echo $row['trainer_id']; ?>">
+                            <button type="submit" name="submit" class="btn btn-danger btn-sm">Reject</button>
+                        </form>
+                    </td>
                 </tr>
-              </thead>";
-     }
-     else{
-        echo" there is no Active Trainers";
-     }?>
-     
-     <tbody>
-     <?php 
-    foreach($result as $row): ?>
-            <tr>
-                <td><img src="<?php echo $row['image']; ?>" alt=""></td>
-                <td><?php echo $row['trainer_id']; ?></td>
-                <td><?php echo $row['name']; ?></td>
-                <td><?php echo $row['trainer_email']; ?></td>
-                <td><?php echo $row['phone']; ?></td>
-                <td><?php echo $row['specialization']; ?></td>
-                <td><?php echo $row['yoe']; ?></td>
-                <td><?php echo $row['approved']; ?></td>
-                <td><?php echo $row['join_date']; ?></td>
-                <td><?php echo $row['cover_letter']; ?></td>
-                <td><img src="<?php echo $row['resume']; ?>" alt=""></td>
-
-                <td>
-                    <form method="post" action="inactiveTrainer.php">
-
-                        <input type="hidden" name="trainer_id" value="<?php echo $row['trainer_id']; ?>">
-                        <input type="hidden" name="name" value="<?php echo $row['name']; ?>">
-                        <input type="hidden" name="trainer_email" value="<?php echo $row['trainer_email']; ?>">
-                        <input type="hidden" name="phone" value="<?php echo $row['phone']; ?>">
-                        <input type="hidden" name="password" value="<?php echo $row['password']; ?>">
-                        <input type="hidden" name="gender" value="<?php echo $row['yoe']; ?>">
-                        <input type="hidden" name="image" value="<?php echo $row['image']; ?>">
-                        <input type="hidden" name="resume" value="<?php echo $row['resume']; ?>">
-                        <input type="hidden" name="join_date" value="<?php echo $row['join_date']; ?>">
-
-                        <button type="submit" name="submit">inActivate</button>
-                    </form>
-                </td>
-                <td>
-                    <form method="post" action="blocktrainer.php">
-
-                        <input type="hidden" name="trainer_id" value="<?php echo $row['trainer_id']; ?>">
-
-                        <button type="submit" name="submit">Block</button>
-                    </form>
-                </td>
-
-            </tr>
-            <?php endforeach; ?>
+        <?php endforeach; ?>
+        
         </tbody>
     </table>
 </div>
