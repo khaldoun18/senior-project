@@ -78,7 +78,8 @@ require_once "connection.php";
                 <table>
 
 
-                <?php
+                    <!-- Use a loop to iterate over the result set and display each row in a table row -->
+                    <?php
 $sql = "SELECT * FROM client where approved = 0";
 $result = $conn->query($sql);
 

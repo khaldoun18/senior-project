@@ -77,14 +77,13 @@ require_once "connection.php";
     <table>
        
         
-            <!-- Use a loop to iterate over the result set and display each row in a table row -->
-            <?php
-    
-     $sql = "SELECT * FROM client where approved = 4";
-     $result=$conn->query($sql);
-     if ($result && mysqli_num_rows($result) > 0) {
+    <table class="table table-bordered">
+    <?php 
+    $sql = "SELECT * FROM client where approved = 4";
+    $result=$conn->query($sql);
+    if ($result && mysqli_num_rows($result) > 0) {
         // if there are rows, show the table header
-        echo "<thead>
+        echo "<thead class='thead-dark'>
                 <tr>
                     <th>image</th>
                     <th>User ID</th>
@@ -95,17 +94,14 @@ require_once "connection.php";
                     <th>Join Date</th>
                     <th>Approved</th>
                     <th>gender</th>
-                   
                 </tr>
               </thead>";
     }
     else{
         echo" there is no rejected clients";
     }?>
-   
     <tbody>
-    <?php 
-    foreach($result as $row): ?>
+        <?php foreach($result as $row): ?>
             <tr>
                 <td><img src="<?php echo $row['image']; ?>" alt=""> </td>
                 <td><?php echo $row['client_id']; ?></td>
@@ -116,15 +112,11 @@ require_once "connection.php";
                 <td><?php echo $row['join_date']; ?></td>
                 <td><?php echo $row['approved']; ?></td>
                 <td><?php echo $row['gender']; ?></td>
-             
-                
-                <td>
-                    
-                </td>
             </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+
 
 
 

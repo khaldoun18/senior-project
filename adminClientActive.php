@@ -83,7 +83,8 @@ require_once "connection.php";
 
 
                 <!-- Use a loop to iterate over the result set and display each row in a table row -->
-                <table class="table table-bordered">
+
+<table class="table table-bordered">
     <?php
     $sql = "SELECT * FROM client where approved = 1";
     $result=$conn->query($sql);
@@ -150,6 +151,7 @@ require_once "connection.php";
         <?php endforeach; ?>
     </tbody>
 </table>
+
 
         </div>
 
