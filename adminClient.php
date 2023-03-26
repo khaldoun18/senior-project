@@ -78,16 +78,16 @@ require_once "connection.php";
                 <table>
 
 
-                    <!-- Use a loop to iterate over the result set and display each row in a table row -->
-                    <?php
-    
-     $sql = "SELECT * FROM client where approved = 0";
-     $result=$conn->query($sql);
-     if ($result && mysqli_num_rows($result) > 0) {
-        // if there are rows, show the table header
-        echo "<thead>
+                <?php
+$sql = "SELECT * FROM client where approved = 0";
+$result = $conn->query($sql);
+
+if ($result && mysqli_num_rows($result) > 0) {
+    // If there are rows, show the table header and start the table body
+    echo '<table class="table table-bordered">
+            <thead>
                 <tr>
-                    <th>image</th>
+                    <th>Image</th>
                     <th>User ID</th>
                     <th>Name</th>
                     <th>Email</th>
@@ -95,55 +95,55 @@ require_once "connection.php";
                     <th>Address</th>
                     <th>Join Date</th>
                     <th>Approved</th>
-                    <th>gender</th>
+                    <th>Gender</th>
+                    <th>Add</th>
+                    <th>Reject</th>
                 </tr>
-              </thead>";
+            </thead>
+            <tbody>';
+
+    // Loop through the query results and display each row
+    foreach ($result as $row) {
+        echo '<tr>
+                <td><img src="' . $row['image'] . '" alt=""></td>
+                <td>' . $row['client_id'] . '</td>
+                <td>' . $row['name'] . '</td>
+                <td>' . $row['email'] . '</td>
+                <td>' . $row['phone'] . '</td>
+                <td>' . $row['address'] . '</td>
+                <td>' . $row['join_date'] . '</td>
+                <td>' . $row['approved'] . '</td>
+                <td>' . $row['gender'] . '</td>
+                <td>
+                    <form method="post" action="addClient.php">
+                        <input type="hidden" name="client_id" value="' . $row['client_id'] . '">
+                        <input type="hidden" name="name" value="' . $row['name'] . '">
+                        <input type="hidden" name="email" value="' . $row['email'] . '">
+                        <input type="hidden" name="phone" value="' . $row['phone'] . '">
+                        <input type="hidden" name="password" value="' . $row['password'] . '">
+                        <input type="hidden" name="gender" value="' . $row['gender'] . '">
+                        <input type="hidden" name="approved" value="' . $row['approved'] . '">
+                        <input type="hidden" name="join_date" value="' . $row['join_date'] . '">
+                        <input type="hidden" name="image" value="' . $row['image'] . '">
+                        <button type="submit" name="submit" class="btn btn-success">Add</button>
+                    </form>
+                </td>
+                <td>
+                    <form method="post" action="deleteClient.php">
+                        <input type="hidden" name="client_id" value="' . $row['client_id'] . '">
+                        <button type="submit" name="submit" class="btn btn-danger">Reject</button>
+                    </form>
+                </td>
+            </tr>';
     }
-    else{
-        echo" there is no requests";
-    }?>
 
-                    <tbody>
-                        <?php 
-    foreach($result as $row): ?>
-                        <tr>
-                            <td><img src="<?php echo $row['image']; ?>" alt=""> </td>
-                            <td><?php echo $row['client_id']; ?></td>
-                            <td><?php echo $row['name']; ?></td>
-                            <td><?php echo $row['email']; ?></td>
-                            <td><?php echo $row['phone']; ?></td>
-                            <td><?php echo $row['address']; ?></td>
-                            <td><?php echo $row['join_date']; ?></td>
-                            <td><?php echo $row['approved']; ?></td>
-                            <td><?php echo $row['gender']; ?></td>
-
-                            <td>
-                                <form method="post" action="addClient.php">
-
-                                    <input type="hidden" name="client_id" value="<?php echo $row['client_id']; ?>">
-                                    <input type="hidden" name="name" value="<?php echo $row['name']; ?>">
-                                    <input type="hidden" name="email" value="<?php echo $row['email']; ?>">
-                                    <input type="hidden" name="phone" value="<?php echo $row['phone']; ?>">
-                                    <input type="hidden" name="password" value="<?php echo $row['password']; ?>">
-                                    <input type="hidden" name="gender" value="<?php echo $row['gender']; ?>">
-                                    <input type="hidden" name="approved" value="<?php echo $row['approved']; ?>">
-                                    <input type="hidden" name="join_date" value="<?php echo $row['join_date']; ?>">
-                                    <input type="hidden" name="image" value="<?php echo $row['image']; ?>">
-                                    <button type="submit" name="submit">Add</button>
-                                </form>
-                            </td>
-                            <td>
-                                <form method="post" action="deleteClient.php">
-
-                                    <input type="hidden" name="client_id" value="<?php echo $row['client_id']; ?>">
-
-                                    <button type="submit" name="submit">Reject</button>
-                                </form>
-                            </td>
-                        </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
+    // Close the table body and table
+    echo '</tbody></table>';
+} else {
+    // If there are no rows, display a message
+    echo "There are no requests.";
+}
+?>
 
 
 
