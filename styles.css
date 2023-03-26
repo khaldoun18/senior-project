@@ -1,0 +1,165 @@
+*{
+    margin: 0;
+}
+.navbar-brand{
+    font-size: 200%;
+}
+body{
+    margin: 0;
+    background-color: #fff;
+    color: #191919;
+    font-family: 'Pacifico', cursive;
+    text-align: center;
+    
+    
+}
+.navbar-brand{
+    padding-left: 2rem;
+}
+.navbar-nav{
+    padding-right: 2rem;
+}
+.section-1{
+    margin-top: 4rem;
+    padding-bottom: 4rem;
+    margin-bottom: 4rem;
+}
+
+.t1{
+    font-size: 550%;
+    margin-bottom: 5rem;
+    font-weight: 600;
+
+}
+.t2{
+    font-size: 200%;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    font-weight: 500;
+}
+.titles{
+    text-align: left;
+    margin-left: 6rem;
+    margin-top: 10rem;
+}
+.btn{
+    border-radius: 40px;
+    transition: all 0.3s ease ;
+}
+.btn:hover{
+    transform: scale(1.05);
+}
+.section-2{
+    color: #fff;
+    background-color: #191919;
+    padding-bottom: 4rem;
+}
+.offer{
+    padding-top: 3rem;
+    padding-bottom: 7rem;
+}
+.weDo{
+    padding-top: 3rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-bottom: 3rem;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+.weDo:hover{
+    background-color: aliceblue;
+    color: #191919;
+    
+}
+.ic{
+   margin-top: 3rem; 
+}
+.section-3{
+    margin-top: 3rem;
+}
+.gr{
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    color: #fff;
+}
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    height: 50px;
+    width: 50px;
+    outline: black;
+    background-color: #191919;
+   
+    
+}   
+
+.section-4{
+    padding-top: 8rem;
+    background-color: #191919;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    padding-bottom: 4rem;
+    z-index: 0;
+}
+#carouselExampleControls{
+    z-index: 0;
+}
+.images{
+    width: 50%;
+    height: 100%;
+    border-radius: 100%;
+}
+.section-5{
+    padding-bottom: 4rem;
+}
+.card{
+    margin: 4rem ;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    
+    
+}
+.card:hover{
+    background-color: #191919;
+    color: #fff;
+    transform: scale(1.2);
+}
+.section-6{
+    background-color: #191919;
+    color: #fff;
+    margin-top: 4rem;
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+}
+.la{
+    text-align: left;
+}
+.my-form{
+    padding-top: 10rem;
+    padding-bottom: 4rem;
+}
+h4{
+    margin: 4rem;
+}
+.machines{
+    width: 70%;
+}
+.trainer-image{
+    width: 85%;
+}
+.ourEquipments{
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+}
+.eq{
+    padding-top: 2rem;
+    padding: bottom 2rem; ;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.eq:hover{
+    background-color: #191919;
+    color: #fff;
+    transform: scale(1.05);
+}

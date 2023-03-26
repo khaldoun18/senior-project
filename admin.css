@@ -1,0 +1,91 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.wrapper {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 100%;
+    background-color: white;
+    padding: 0 20px;
+    margin-right: 20px; 
+    height: 100vh;
+    position: fixed;
+  }
+  
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 40px;
+  }
+  
+  a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    background-color: #e6e6e6;
+  }
+  .main-content{
+    margin-left: 18%;
+  }
+  
+ .package{
+  margin-left: 18%;
+  margin-top: 10%;
+ }
+ .button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+.card{
+  margin: 4rem ;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.card:hover{
+  background-color: #191919;
+  color: #fff;
+  transform: scale(1.2);
+}
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+

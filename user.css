@@ -1,0 +1,33 @@
+.profile-logo{
+    background-color: transparent;
+    color: white;
+    border-radius: 100px;
+    width: 60px;
+    height: 60px;
+   margin: 1rem;
+    margin-right: 4rem;
+}
+img{
+    height: 40px;
+    width: 40px;
+    
+}
+.section-1{
+    text-align: center;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+.group-center{
+    margin: 0 auto;
+    width: 50%;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+.hidden{
+    display: none;
+}
+.glow:hover{
+background-color: black;
+color: white;
+opacity: 0.9;
+}

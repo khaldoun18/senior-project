@@ -1,0 +1,61 @@
+
+.navbar-brand{
+    font-size: 200%;
+}
+.navbar-brand{
+    padding-left: 2rem;
+}
+
+.navbar-nav{
+    padding-right: 2rem;
+}
+.la{
+    text-align: left;
+}
+body{
+    margin: 0;
+    background-color: #fff;
+    color: #191919;
+    font-family: 'Pacifico', cursive;
+}
+.btn{
+    border-radius: 40px;
+    transition: all 0.3s ease ;
+    
+}
+.btn:hover{
+    transform: scale(1.05);
+}
+#man{
+    padding-left: 10rem;
+    
+    
+}
+.login{
+    margin-top: 13rem;
+}
+.img-login{
+    width: 50%;
+    margin-left: 10rem;
+}
+.hire{
+    margin-top: 5rem;
+}
+.l{
+    padding-top: 3rem;
+}
+.m{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.f{
+    width: 80%;
+}
+.a{
+    width: 50%;
+}
+.h-form{
+    padding-bottom: 4rem;
+   
+}
