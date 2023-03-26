@@ -22,54 +22,52 @@ if (!isset($_SESSION["admin_email"])) {
 
 <body>
 
+
 <nav class="navbar navbar-dark bg-dark">
         <a class="navbar-brand">Tiger House</a>
         <form class="form-inline ml-auto" action="index.php">
             <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Logout</button>
         </form>
     </nav>
-
+    
     <div class="wrapper">
 
    
     <div class="sidebar">
-    <ul>
-                <li><a href="admin.php">Dashboard</a></li>
 
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Clients
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="adminClient.php">Clients requests</a></li>
-                        <li><a class="dropdown-item" href="adminClientActive.php">Active Clients</a></li>
-                        <li><a class="dropdown-item" href="adminClientInActive.php">In Active Clients</a></li>
-                        <li><a class="dropdown-item" href="adminClientBlock.php">Blocked Clients</a></li>
-                        <li><a class="dropdown-item" href="adminClientReject.php">Rejected Clients</a></li>
-                    </ul>
-                </div>
-
-                <div class="dropdown"><br>
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Trainers
-                    </button>
-                    <ul class="dropdown-menu"><br>
-                        <li><a class="dropdown-item" href="adminTrainer.php">Trainers requests</a></li>
-                        <li><a class="dropdown-item" href="adminTrainerActive.php">Active Trainers</a></li>
-                        <li><a class="dropdown-item" href="adminTrainerInActive.php">In Active Trainers</a></li>
-                        <li><a class="dropdown-item" href="adminTrainerBlock.php">Blocked Trainers</a></li>
-                        <li><a class="dropdown-item" href="adminTrainerReject.php">Rejected Trainer</a></li>
-                    </ul>
-                </div><br>
-                <li><a href="adminTrainer.php">Trainers</a></li>
-                <li><a href="manageplans.php">Membership Plans</a></li>
-                <li><a href="#">Schedules</a></li>
-                <li><a href="#">Settings</a></li>
-
-            </ul>
-        </div>
+<ul>
+  <li><a href="admin.php">Dashboard</a></li>
+ 
+  <div class="dropdown">
+<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+ Clients
+</button>
+<ul class="dropdown-menu">
+  <li><a class="dropdown-item" href="adminClient.php">Clients requests</a></li>
+  <li><a class="dropdown-item" href="adminClientActive.php">Active Clients</a></li>
+  <li><a class="dropdown-item" href="adminClientInActive.php">In Active Clients</a></li>
+  <li><a class="dropdown-item" href="adminClientBlock.php">Blocked Clients</a></li>
+  <li><a class="dropdown-item" href="adminClientReject.php">Rejected Clients</a></li>
+</ul>
+</div>
+<div class="dropdown"><br>
+<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+ Trainers
+</button>
+<ul class="dropdown-menu"><br>
+  <li><a class="dropdown-item" href="adminTrainer.php">Change password</a></li>
+  <li><a class="dropdown-item" href="adminTrainerActive.php">Sign out </a></li>
+  <li><a class="dropdown-item" href="adminTrainerInActive.php">In Active Trainers</a></li>
+  <li><a class="dropdown-item" href="adminTrainerBlock.php">Blocked Trainers</a></li>
+  <li><a class="dropdown-item" href="adminTrainerReject.php">Rejected Trainer</a></li>
+</ul>
+</div>
+  <li><a href="adminTrainer.php">Trainers</a></li>
+  <li><a href="manageplans.php">Membership Plans</a></li>
+  <li><a href="#">Schedules</a></li>
+  <li><a href="#">Settings</a></li>
+</ul>
+</div>
 <div class="main-content">
 <h1>admin</h1>
    
@@ -123,7 +121,6 @@ if (!isset($_SESSION["admin_email"])) {
                 <td><?php echo $row['cover_letter']; ?></td>
                 <td><img src="<?php echo $row['resume']; ?>" alt=""></td>
 
-             
                 <td>
                     <form method="post" action="activeTrainer.php">
 
@@ -137,7 +134,15 @@ if (!isset($_SESSION["admin_email"])) {
                         <input type="hidden" name="resume" value="<?php echo $row['resume']; ?>">
                         <input type="hidden" name="join_date" value="<?php echo $row['join_date']; ?>">
 
-                        <button type="submit" name="submit">Activate</button>
+                        <button type="submit" name="submit">activate</button>
+                    </form>
+                </td>
+                <td>
+                    <form method="post" action="blocktrainer.php">
+
+                        <input type="hidden" name="trainer_id" value="<?php echo $row['trainer_id']; ?>">
+
+                        <button type="submit" name="submit">Block</button>
                     </form>
                 </td>
 
