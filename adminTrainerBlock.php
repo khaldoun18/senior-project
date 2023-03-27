@@ -74,7 +74,7 @@ if (!isset($_SESSION["admin_email"])) {
 
 
     <h1>Blocked Trainers</h1>
-    <table>
+    <table class="table table-bordered">
   
         <tbody>
             <!-- Use a loop to iterate over the result set and display each row in a table row -->
@@ -108,7 +108,7 @@ if (!isset($_SESSION["admin_email"])) {
      <?php 
     foreach($result as $row): ?>
             <tr>
-                <td><img src="<?php echo $row['image']; ?>" alt=""></td>
+            <td><img src="<?php echo $row['image']; ?>"  class="img-thumbnail" alt=""></td>
                 <td><?php echo $row['trainer_id']; ?></td>
                 <td><?php echo $row['name']; ?></td>
                 <td><?php echo $row['trainer_email']; ?></td>
@@ -118,8 +118,7 @@ if (!isset($_SESSION["admin_email"])) {
                 <td><?php echo $row['approved']; ?></td>
                 <td><?php echo $row['join_date']; ?></td>
                 <td><?php echo $row['cover_letter']; ?></td>
-                <td><img src="<?php echo $row['resume']; ?>" alt=""></td>
-
+                <td><img src="<?php echo $row['resume']; ?>"  class="img-thumbnail" alt=""></td>
              
                 <td>
                     <form method="post" action="activeTrainer.php">
@@ -134,7 +133,7 @@ if (!isset($_SESSION["admin_email"])) {
                         <input type="hidden" name="resume" value="<?php echo $row['resume']; ?>">
                         <input type="hidden" name="join_date" value="<?php echo $row['join_date']; ?>">
 
-                        <button type="submit" name="submit">Activate</button>
+                        <button type="submit" name="submit" class="btn btn-danger">Activate</button>
                     </form>
                 </td>
 

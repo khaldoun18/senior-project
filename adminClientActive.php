@@ -72,7 +72,7 @@ require_once "connection.php";
    
 <h1>Active Clients</h1>
 
-<table>
+<table class="table table-bordered">
        
         
        <!-- Use a loop to iterate over the result set and display each row in a table row -->
@@ -105,7 +105,8 @@ else{
 <?php 
 foreach($result as $row): ?>
        <tr>
-           <td><img src="<?php echo $row['image']; ?>" alt=""> </td>
+       <td><img src="<?php echo $row['image']; ?>"  class="img-thumbnail" alt=""></td>
+          
            <td><?php echo $row['client_id']; ?></td>
            <td><?php echo $row['name']; ?></td>
            <td><?php echo $row['email']; ?></td>
@@ -129,7 +130,7 @@ foreach($result as $row): ?>
                    <input type="hidden" name="approved" value="<?php echo $row['approved']; ?>">
                    <input type="hidden" name="join_date" value="<?php echo $row['join_date']; ?>">
                    <input type="hidden" name="image" value="<?php echo $row['image']; ?>">
-                   <button type="submit" name="submit">Inactive</button>
+                   <button type="submit" name="submit" class="btn btn-primary">Inactive</button>
                </form>
            </td>
            <td>
@@ -137,7 +138,7 @@ foreach($result as $row): ?>
 
                    <input type="hidden" name="client_id" value="<?php echo $row['client_id']; ?>">
 
-                   <button type="submit" name="submit">Block</button>
+                   <button type="submit" class="btn btn-danger" name="submit">Block</button>
                </form>
            </td>
        </tr>

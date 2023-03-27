@@ -70,7 +70,8 @@ require_once "connection.php";
 <div class="main-content">
 <h1>admin</h1>
     <h1>Client request</h1>
-    <table>
+  
+<table class="table table-bordered">
        
         
             <!-- Use a loop to iterate over the result set and display each row in a table row -->
@@ -124,15 +125,14 @@ require_once "connection.php";
                         <input type="hidden" name="approved" value="<?php echo $row['approved']; ?>">
                         <input type="hidden" name="join_date" value="<?php echo $row['join_date']; ?>">
                         <input type="hidden" name="image" value="<?php echo $row['image']; ?>">
-                        <button type="submit" name="submit">Add</button>
+                        <button type="submit" name="submit" class="btn btn-primary">Add</button>
                     </form>
                 </td>
                 <td>
                     <form method="post" action="deleteClient.php">
 
                         <input type="hidden" name="client_id" value="<?php echo $row['client_id']; ?>">
-
-                        <button type="submit" name="submit">Reject</button>
+                        <button type="submit" name="submit" class="btn btn-danger">Reject</button>
                     </form>
                 </td>
             </tr>

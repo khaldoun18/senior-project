@@ -119,11 +119,11 @@ if (!isset($_SESSION["admin_email"])) {
                                     <input type="hidden" name="package_description"
                                         value="<?php echo $row['package_description']; ?>">
                                 </div>
-                                <button type="submit" name="submit">manage</button>
+                                <button type="submit" name="submit" class="btn btn-primary">manage</button>
                             </form>
                             <form method="post" action="deletePackage.php">
                                 <input type="hidden" name="package_id" value="<?php echo $row['package_id']; ?>">
-                                <button type="submit" name="submit">delete</button>
+                                <br><button type="submit" name="submit" class="btn btn-danger">delete</button>
                             </form>
                         </div>
                     </div>
@@ -157,7 +157,7 @@ if (!isset($_SESSION["admin_email"])) {
 
 
 
-                    <button type="submit" name="submit">add</button>
+                    <button type="submit" name="submit" class="btn btn-primary">add</button>
                 </form>
             </div>
         </div>

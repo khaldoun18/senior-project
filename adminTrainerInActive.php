@@ -55,8 +55,8 @@ if (!isset($_SESSION["admin_email"])) {
  Trainers
 </button>
 <ul class="dropdown-menu"><br>
-  <li><a class="dropdown-item" href="adminTrainer.php">Change password</a></li>
-  <li><a class="dropdown-item" href="adminTrainerActive.php">Sign out </a></li>
+  <li><a class="dropdown-item" href="adminTrainer.php">Trainers requests</a></li>
+  <li><a class="dropdown-item" href="adminTrainerActive.php">Active Trainers</a></li>
   <li><a class="dropdown-item" href="adminTrainerInActive.php">In Active Trainers</a></li>
   <li><a class="dropdown-item" href="adminTrainerBlock.php">Blocked Trainers</a></li>
   <li><a class="dropdown-item" href="adminTrainerReject.php">Rejected Trainer</a></li>
@@ -70,12 +70,12 @@ if (!isset($_SESSION["admin_email"])) {
 </div>
 <div class="main-content">
 <h1>admin</h1>
-   
+
 
 
 
     <h1>Inactive Trainers </h1>
-    <table>
+    <table class="table table-bordered">
 
         <tbody>
             <!-- Use a loop to iterate over the result set and display each row in a table row -->
@@ -109,7 +109,7 @@ if (!isset($_SESSION["admin_email"])) {
      <?php 
     foreach($result as $row): ?>
             <tr>
-                <td><img src="<?php echo $row['image']; ?>" alt=""></td>
+            <td><img src="<?php echo $row['image']; ?>"  class="img-thumbnail" alt=""></td>
                 <td><?php echo $row['trainer_id']; ?></td>
                 <td><?php echo $row['name']; ?></td>
                 <td><?php echo $row['trainer_email']; ?></td>
@@ -119,7 +119,7 @@ if (!isset($_SESSION["admin_email"])) {
                 <td><?php echo $row['approved']; ?></td>
                 <td><?php echo $row['join_date']; ?></td>
                 <td><?php echo $row['cover_letter']; ?></td>
-                <td><img src="<?php echo $row['resume']; ?>" alt=""></td>
+                <td><img src="<?php echo $row['resume']; ?>"  class="img-thumbnail" alt=""></td>
 
                 <td>
                     <form method="post" action="activeTrainer.php">
@@ -134,7 +134,7 @@ if (!isset($_SESSION["admin_email"])) {
                         <input type="hidden" name="resume" value="<?php echo $row['resume']; ?>">
                         <input type="hidden" name="join_date" value="<?php echo $row['join_date']; ?>">
 
-                        <button type="submit" name="submit">activate</button>
+                        <button type="submit" name="submit" class="btn btn-primary">activate</button>
                     </form>
                 </td>
                 <td>
@@ -142,7 +142,7 @@ if (!isset($_SESSION["admin_email"])) {
 
                         <input type="hidden" name="trainer_id" value="<?php echo $row['trainer_id']; ?>">
 
-                        <button type="submit" name="submit">Block</button>
+                        <button type="submit" name="submit" class="btn btn-danger">Block</button>
                     </form>
                 </td>
 
