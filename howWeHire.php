@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
     <link rel="stylesheet" href="signup.css">
@@ -16,30 +18,31 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark   ">
-        <a class="navbar-brand" href="index.php">Tiger House</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse " id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="index.php">Tiger House</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="aboutUs.php">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="howWeHire.php">How we hire</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="signup.php">sign up</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="signin.php">Login</a>   
+          </li>
+      </ul>
+    </div>
+  </nav>
+</div>
 
-                <li class="nav-item">
-                    <a style="padding-right: 3rem;" class="nav-link" href="aboutUs.php">About Us</a>
-                </li>
-                <li class="nav-item">
-                    <a style="padding-right: 3rem;" class="nav-link" href="howWeHire.php">How we hire</a>
-                </li>
-                <li class="nav-item">
-                    <a style="padding-right: 3rem;" class="nav-link" href="signup.php">sign up</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="signin.php">Login</a>
-                </li>
-
-            </ul>
-        </div>
-    </nav>
 
     <div class="hire">
         <div class="container">
@@ -64,137 +67,157 @@
                     </li>
                 </ol>
             </div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
 
+                        <form action="#" method="POST" enctype="multipart/form-data">
 
+                            <div class="form-group">
+                                <label for="name">Full Name:</label>
+                                <input type="text" class="form-control" id="name" name="fname" required><br>
+                            </div>
 
-        </div>
-    </div>
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" class="form-control" id="trainer_email" name="trainer_email"
+                                    required><br>
+                            </div>
 
-    <center>
-        <div style="margin-top: 4rem;" class="h-form">
-            <div class="container cf">
+                            <div class="form-group">
+                                <label for="phone">Phone Number:</label>
+                                <input type="number" class="form-control" id="phone" name="phone" pattern="[0-9]{8}"
+                                    required><br>
+                            </div>
 
+                            <div class="form-group">
+                                <label for="dob">Date of Birth:</label>
+                                <input type="date" class="form-control" id="dob" name="dob" placeholder="YYYY-MM-DD"
+                                    required><br>
+                            </div>
 
-                <form action="#" method="POST" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="Specialization">Specialization:</label>
+                                <input type="text" class="form-control" id="Specialization" name="Specialization"
+                                    required><br>
+                            </div>
 
-                    <label class="la" for="name">Full Name:</label>
-                    <input type="text" class="a form-control" id="name" name="fname" required><br><br>
+                            <div class="form-group">
+                                <label for="ex">Years of Experience:</label>
+                                <input type="number" class="form-control" id="" name="ex" required><br>
+                            </div>
 
+                            <div class="form-group">
+                                <label for="image">Profile Picture:</label>
+                                <input type="file" class="form-control" id="image" name="image" required><br>
+                            </div>
 
-                    <label class="la" for="email">Email:</label>
-                    <input type="email" class="a form-control" id="trainer_email" name="trainer_email" required><br><br>
+                            <div class="form-group">
+                                <label for="weight">Cover Letter:</label>
+                                <textarea name="cover" class="form-control" id="weight" rows="5"
+                                    required></textarea><br>
+                            </div>
 
+                            <div class="form-group">
+                                <label for="resume">Resume:</label>
+                                <input type="file" class="form-control" id="resume" name="resume" required><br>
+                            </div>
 
-                    <label class="la" for="phone">Phone Number:</label>
-                    <input type="number" class="a form-control" id="phone" name="phone" pattern="[0-9]{8}" required><br><br>
-                    
+                            <div class="form-group">
+                                <label for="courses">Course:</label>
+                                <select name="courses" id="courses" class="form-control" required><br>
+                                    <option value="kickboxing">Kickboxing</option>
+                                    <option value="zumba">Zumba</option>
+                                </select>
+                            </div><br>
 
-                    <label class="la" for="bmi">Date of Birth</label>
-                    <input type="date"  class="a form-control" id="dob" name="dob" placeholder="YYYY-MM-DD" required><br><br>
+                            <div class="form-group">
+                                <label for="courselevel">Course Level:</label>
+                                <select name="courselevel" id="courselevel" class="form-control" required><br>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div><br>
 
-                    <label class="la" for="name">Specialization</label>
-                    <input type="text" class="a form-control" id="Specialization" name="Specialization" required><br><br>
+                            <div class="form-group">
+                                <label for="days">Class Day:</label>
+                                <select name="days" id="days" class="form-control" required><br>
+                                    <option value="monday">Monday</option>
+                                    <option value="tuesday">Tuesday</option>
+                                    <option value="wednesday">Wednesday</option>
+                                    <option value="thursday">Thursday</option>
+                                    <option value="friday">Friday</option>
+                                </select>
+                            </div><br>
 
-                    <label class="la" for="ex">Years of Experience:</label>
-                    <input type="number" class="a form-control" id="" name="ex" required><br><br>
+                            <div class="form-group">
+                                <label for="hours">Class hours:</label>
+                                <select class="form-control" name="hours" id="hours">
+                                    <option value="8:00:00">8:00-9:30 AM</option>
+                                    <option value="9:30:00">9:30-11:00 AM</option>
+                                    <option value="17:00:00">5:00-6:30 PM</option>
+                                    <option value="18:30:00">6:30-8:00 PM</option>
+                                    <option value="20:00:00">8:00-9:30 PM</option>
+                                </select>
+                            </div>
+                    </div>
+                </div><br>
 
-                    <label class="la" for="im">Profile picture</label>
-                    <input type="File" class="a form-control" id="" name="image" required><br><br>
-
-                    <label class="la" for="weight">Cover letter:</label>
-                    <textarea name="cover" cols="30" rows="10" class="a form-control" id="weight" required></textarea>
-                    <br><br>
-
-                    <label class="la" for="im">Resume</label>
-                    <input type="File" class="a form-control" id="" name="resume" required><br><br>
-                    <label class="la" for="im">course</label><br>
-                    <select name="courses" id="courses">
-    <option value="kickboxing">Kickboxing</option>
-    <option value="zumba">Zumba</option>
-   
-  </select><br> <br>
-
-  <label class="la" for="im">Course level</label><br>
-                    <select name="courselevel" id="courselevel">
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-   
-  </select><br> <br>
-
-
-                    
-                    <label class="la" for="im">Class hours:</label><br>
-                    <select name="days" id="days">
-    <option value="monday">Monday</option>
-    <option value="tuesday">Tuesday</option>
-    <option value="wednesday">Wednesday</option>
-    <option value="thursday">Thursday</option>
-    <option value="friday">Friday</option>
-  </select><br> <br>
-
-                    <select name="hours" id="hours">
-  <option value="8:00:00">8:00-9:30 AM</option>
-  <option value="9:30:00">9:30-11:00 AM</option>
-  <option value="17:00:00">5:00-6:30 PM</option>
-  <option value="18:30:00">6:30-8:00 PM</option>
-  <option value="20:00:00">8:00-9:30 PM</option>
-</select><br> <br>
-
-
-                    <input class="sub btn btn-outline-dark" type="submit" value="Submit Form">
-                </form>
+                <div class="form-group">
+                    <input class="btn btn-outline-dark" type="submit" value="Submit Form">
+                </div>
             </div>
         </div>
 
         <script>
-            function generatePassword(length) {
-                // Define all possible characters that can be used in the password
-                const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@_";
+        function generatePassword(length) {
+            // Define all possible characters that can be used in the password
+            const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@_";
 
-                let password = "";
-                for (let i = 0; i < length; i++) {
-                    // Pick a random character from the chars string
-                    const randomIndex = Math.floor(Math.random() * chars.length);
-                    const randomChar = chars.charAt(randomIndex);
+            let password = "";
+            for (let i = 0; i < length; i++) {
+                // Pick a random character from the chars string
+                const randomIndex = Math.floor(Math.random() * chars.length);
+                const randomChar = chars.charAt(randomIndex);
 
-                    // Add the random character to the password
-                    password += randomChar;
-                }
-
-                return password;
+                // Add the random character to the password
+                password += randomChar;
             }
 
-            document.addEventListener("DOMContentLoaded", () => {
-                const passwordInput = document.getElementById("password");
-                const password = generatePassword(10); // Generate a password with 10 characters
-                passwordInput.value =
-                    password; // Set the value of the hidden input element to the generated password
-            });
+            return password;
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const passwordInput = document.getElementById("password");
+            const password = generatePassword(10); // Generate a password with 10 characters
+            passwordInput.value =
+                password; // Set the value of the hidden input element to the generated password
+        });
         </script>
 
-    </center>
+        </center>
 
 
 
 
-    <div class="section-6">
+        <div class="section-6">
 
-        <h2 style="padding-bottom: 4rem;">Feel free to contact us!!</h2>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    <h3>+961/00000000</h3>
-                </div>
-                <div class="col-sm-6">
-                    <h3>example@gmail.com</h3>
+            <h2 style="padding-bottom: 4rem;">Feel free to contact us!!</h2>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3>+961/00000000</h3>
+                    </div>
+                    <div class="col-sm-6">
+                        <h3>example@gmail.com</h3>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
-    <script>
+        <script>
         const input = document.getElementById("phone");
         input.addEventListener("input", function() {
             const pattern = /^[0-9]{8}$/;
@@ -204,8 +227,8 @@
                 input.setCustomValidity("");
             }
         });
-    </script>
-    <?php
+        </script>
+        <?php
 
     if (isset($_POST['fname'])) {
         require_once "connection.php";
