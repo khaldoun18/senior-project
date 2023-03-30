@@ -65,11 +65,6 @@
                             <input type="text" class="form-control" id="address" name="address" required><br><br>
 
 
-
-                           
-
-
-
                             <label for="gender">Gender:</label>
                             <input type="radio" id="male" name="gender" value="male" checked>
                             <label for="male">Male</label>
@@ -99,8 +94,8 @@
                 </div>
 
                 <div class="col-md-6">
-                    <img id="man" src="pics/man1-removebg-preview (1).png" alt="">
-                </div>
+    <img id="man" src="pics/man1-removebg-preview (1).png" alt="" class="img-fluid">
+</div>
 
 
 
@@ -162,71 +157,59 @@
         });
     </script>
 
+<?php
+if (isset($_POST['name'])) {
+    require_once "connection.php";
+    require_once "validate.php";
+    $name = validate($_POST['name']);
+    $email = validate($_POST['email']);
+    $phone = validate($_POST['phone']);
+    $address = validate($_POST['address']);
+    $dob = $_POST['dob'];
+    $mysql_dob = date('Y-m-d', strtotime($dob));
+    
+    $target = "userimage/";
+    $target_file = $target . basename($_FILES["image"]["name"]);
+    move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+    $image_path = $target_file;
+    $gender = validate($_POST['gender']);
 
-
- 
-    <?php
-    if (isset($_POST['name'])) {
-        require_once "connection.php";
-        require_once "validate.php";
-        $name = validate($_POST['name']);
-        $email = validate($_POST['email']);
-        $password="";
-        $phone = validate($_POST['phone']);
-        $address = validate($_POST['address']);
-        $dob = $_POST['dob'];
-        $mysql_dob = date('Y-m-d', strtotime($dob));
-        
-        $target = "userimage/";
-        $target_file = $target . basename($_FILES["image"]["name"]);
-        move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
-        $image_path = $target_file;
-        $gender = validate($_POST['gender']);
-        
-
-       
-    }
-    if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
-   
-    $sql = "insert into client values (' ','$name', '$email', '$password', '$phone', '$address', NOW() , '0' , '$image_path','$gender','$mysql_dob')";
-
-    if (mysqli_query($conn, $sql)) {
-        echo "<script>alert('You are Registerd')</script>";
+    // check if email or phone number already exists in database
+    $sql = "SELECT * FROM client WHERE email='$email' OR phone='$phone'";
+    $result = mysqli_query($conn, $sql);
+    if (mysqli_num_rows($result) > 0) {
+        echo "<script>alert('The email or phone number is already used')</script>";
     } else {
-        echo "<script>alert('The Email or the phone number is already used')</script>";
+        $sql = "INSERT INTO client VALUES ('', '$name', '$email', '', '$phone', '$address', NOW(), '0', '$image_path', '$gender', '$mysql_dob')";
+        if (mysqli_query($conn, $sql)) {
+            echo "<script>alert('You are registered')</script>";
+        } else {
+            echo "<script>alert('Error: " . mysqli_error($conn) . "')</script>";
+        }
+
+        // get the client id
+        $select = "SELECT client_id FROM client WHERE email='$email'";
+        $result = $conn->query($select);
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $client_id = $row["client_id"]; 
+            }
+        } else {
+            echo "No results found.";
+        }
+
+        $height = validate($_POST['height']);
+        $weight = validate($_POST['weight']);
+        $sql = "INSERT INTO bmi VALUES ('', '$client_id', '$height', '$weight', NOW())";
+        if (mysqli_query($conn, $sql)) {
+            echo "<script>alert('You are registered')</script>";
+        } else {
+            echo "<script>alert('Error: " . mysqli_error($conn) . "')</script>";
+        }
     }
-    $select="select client_id from client where email='$email'";
-    $result = $conn->query($select);
-
-// Output the result
-if ($result->num_rows > 0) {
-  while($row = $result->fetch_assoc()) {
-    // Do something with the row data
-     $client_id=$row["client_id"]; 
-   
-  }
-} else {
-  echo "No results found.";
-}
-
-    $height = validate($_POST['height']);
-    $weight = validate($_POST['weight']);
-    $sql = "insert into bmi values ('','$client_id','$height','$weight',NOW() )";
-
-    if (mysqli_query($conn, $sql)) {
-        echo "<script>alert('You are Registerd')</script>";
-    } else {
-        echo "<script>alert('The Email or the phone number is already used')</script>";
-    }
-
     mysqli_close($conn);
-
-
-
-
-    ?>
+}
+?>
 </body>
 
 </html>
