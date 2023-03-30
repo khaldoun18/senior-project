@@ -25,13 +25,23 @@ if (!isset($_SESSION["admin_email"])) {
 
 <body>
 
-<nav class="navbar navbar-dark bg-dark">
-        <a class="navbar-brand">Tiger House</a>
-        <form class="form-inline ml-auto" action="index.php">
-            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Logout</button>
-        </form>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand">Tiger House</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                <form class="form-inline ml-auto" action="index.php">
+                    <button class="btn btn-primary" type="submit">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
-    
+
     <div class="wrapper">
 
 
@@ -137,34 +147,32 @@ if (!isset($_SESSION["admin_email"])) {
 
 
 
-
-            <div class="col-md-4">
-                <form method="post" action="addPackage.php">
-                    <br><br><br>
-                    <label for="">Price:</label>
-                    <input type="number" name="price"><br><br>
-                    <label for="">Sessions:</label>
-                    <input type="number" name="sessions"><br><br>
-                    <label for="">Description:</label>
-                    <input type="text" name="package_description"><br><br>
-
-
-
-
-
-
-
-
-
-
-                    <button type="submit" name="submit" class="btn btn-primary">add</button>
-                </form>
+            <div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <form method="post" action="addPackage.php">
+            <div class="form-group">
+              <label for="price">Price:</label>
+              <input type="number" class="form-control" id="price" name="price" required>
             </div>
+            <div class="form-group">
+              <label for="sessions">Sessions:</label>
+              <input type="number" class="form-control" id="sessions" name="sessions" required>
+            </div>
+            <div class="form-group">
+              <label for="description">Description:</label>
+              <input type="text" class="form-control" id="description" name="package_description" required>
+            </div>
+            <br><button type="submit" class="btn btn-primary">Add Package</button>
+          </form>
         </div>
+      </div>
     </div>
+  </div>
+</div>
 
-
-    </div>
 </body>
 
 </html>
