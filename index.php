@@ -21,33 +21,34 @@
 <body>
 
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark    ">
-        <a class="navbar-brand" href="index.php">Tiger House</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse " id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a style="padding-right: 3rem;" class="nav-link" href="aboutUs.php">About Us</a>
-                </li>
-
-                <li class="nav-item">
-                    <a style="padding-right: 3rem;" class="nav-link" href="howWeHire.php">How we hire</a>
-                </li>
-                <li class="nav-item">
-                    <a style="padding-right: 3rem;" class="nav-link" href="signup.php">sign up</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="signin.php">Login</a>
-                </li>
-
-            </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.php">Tiger House</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="aboutUs.php">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="howWeHire.php">How we hire</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="signup.php">sign up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="signin.php">Login</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
-    <div class="section-1">
+
+    <div class="section-1 container">
 
         <div class="row">
             <div class="col-lg-6">
@@ -55,19 +56,16 @@
                     <h1 class="t1">Tiger House</h1>
                     <h2 class="t2">The Best Kickboxing Gym You Can Find!</h2>
                 </div>
-
-
             </div>
-            <div style="padding-top: 2rem;" class="col-lg-6">
 
-                <img id="bu" src="pics/obesity.png" alt="">
+            <div class="col-lg-6 text-center">
+                <img id="bu" src="pics/obesity.png" alt="" class="img-fluid">
                 <h2 id="ht">if you want to change your life style to a better way click on the button</h2>
                 <button id="clicked" type="button" class="btn btn-outline-dark">See The Result!!</button>
-
-
             </div>
-
         </div>
+
+
 
     </div>
     <div class="section-2">
@@ -94,31 +92,35 @@
             </div>
         </div>
     </div>
+
+
     <div class="section-3">
         <div class="container">
             <h1>Who We Are</h1>
             <div class="gr">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-lg-6">
                         <h3 style="text-align: left; padding-right: 3rem; color: #191919;">As a professional kickboxing
                             trainer, we believe in individualized training for each client. We assess their capabilities
-                            and work closely with
-                            them to understand their goals and aspirations in kickboxing. From there, we create a
-                            tailored training plan that incorporates their strengths and
-                            helps to improve their weaknesses. With a combination of expert techniques and personalized
-                            strategies, we strive to provide each client with the best
-                            possible training experience, empowering them to achieve their full potential in kickboxing.
+                            and work closely with them to understand their goals and aspirations in kickboxing. From
+                            there, we create a tailored training plan that incorporates their strengths and helps to
+                            improve their weaknesses. With a combination of expert techniques and personalized
+                            strategies, we strive to provide each client with the best possible training experience,
+                            empowering them to achieve their full potential in kickboxing.
                         </h3>
                     </div>
-                    <div class="col-md-6">
-                        <img style="padding-left: 3rem;padding-top: 1.5rem; border-radius: 10%;"
+                    <div class="col-lg-6">
+                        <img class="img-fluid" style="padding-left: 1rem;padding-top: 1rem; border-radius: 15%;"
                             src="pics/gettyimages4.jpg" alt="">
                     </div>
+
                 </div>
             </div>
-
         </div>
     </div>
+
+
+
     <div style="z-index: 0;" class="section-4">
         <div style="z-index: 0;" id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -149,20 +151,17 @@
             </button>
         </div>
     </div>
+
+
+
+
     <div class="bmi">
         <div class="container">
             <h2>Check Your BMI Now</h2>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-lg-6">
                     <div class="my-form">
                         <form action="">
-
-
-
-
-
-
-
                             <label class="la" for="height">Height in meters:</label>
                             <input type="number" step="0.01" class="form-control" id="height" name="height"
                                 oninput="updateImage()" required><br><br>
@@ -176,74 +175,70 @@
                             <label for="male">Male</label>
                             <input type="radio" id="female" name="gender" value="female">
                             <label for="female">Female</label><br><br>
+
                             <label class="la" for="bmi">BMI</label>
                             <input type="number" step="0.01" class="form-control" id="bmi" name="bmi"
                                 oninput="updateImage()" required><br><br>
-
-
                         </form>
                     </div>
-
                 </div>
 
-                <div class="col-md-6">
-                    <img style="width: 50%;" id="man" src="pics/man1-removebg-preview (1).png" alt="">
+                <div class="col-lg-6">
+                    <img class="img-fluid" id="man" src="pics/man1-removebg-preview (1).png" alt="">
                 </div>
-
-
-
-
             </div>
         </div>
     </div>
 
+
+
     <div class="section-5">
         <h1>Our Offers!</h1>
         <div class="container">
-
-            <div class="card-group">
+            <div class="row">
                 <?php 
-  require_once "connection.php";
- $sql = "SELECT * FROM package ";
-$result = $conn->query($sql);
-if ($result && mysqli_num_rows($result) > 0) {
-?>
+        require_once "connection.php";
+        $sql = "SELECT * FROM package ";
+        $result = $conn->query($sql);
+        if ($result && mysqli_num_rows($result) > 0) {
+      ?>
 
                 <?php while($row = mysqli_fetch_assoc($result)): ?>
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title"><?php echo $row['price']; ?>$</h4>
-                        <hr>
-                        <p class="card-text">In this package we offer <?php echo $row['sessions']; ?> sessions</p>
-                        <p class="card-text"><?php echo $row['package_description']; ?></p>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title"><?php echo $row['price']; ?>$</h4>
+                            <hr>
+                            <p class="card-text">In this package we offer <?php echo $row['sessions']; ?> sessions</p>
+                            <p class="card-text"><?php echo $row['package_description']; ?></p>
+                        </div>
                     </div>
                 </div>
                 <?php endwhile; ?>
 
                 <?php } else {
-echo "No trainers right now";
-} ?>
-
+        echo "No trainers right now";
+      } ?>
             </div>
-
-
-
         </div>
     </div>
-    <div class="section-6">
 
+    <div class="section-6">
         <h2 style="padding-bottom: 4rem;">Feel free to contact us!!</h2>
         <div class="container">
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-md-6">
                     <h3>+961/00000000</h3>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-md-6">
                     <h3>example@gmail.com</h3>
                 </div>
             </div>
         </div>
     </div>
+
+
+
 
     <script>
     document.getElementById("clicked").addEventListener("click", function() {
