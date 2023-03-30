@@ -71,7 +71,7 @@ require_once "connection.php";
 <div class="main-content">
 <h1>admin</h1>
     <h1>Rejected Clients</h1>
-    <table class="table table-bordered">
+    <table>
        
         
             <!-- Use a loop to iterate over the result set and display each row in a table row -->
@@ -104,7 +104,7 @@ require_once "connection.php";
     <?php 
     foreach($result as $row): ?>
             <tr>
-            <td><img src="<?php echo $row['image']; ?>"  class="img-thumbnail" alt=""></td>
+                <td><img src="<?php echo $row['image']; ?>" alt=""> </td>
                 <td><?php echo $row['client_id']; ?></td>
                 <td><?php echo $row['name']; ?></td>
                 <td><?php echo $row['email']; ?></td>
@@ -113,6 +113,11 @@ require_once "connection.php";
                 <td><?php echo $row['join_date']; ?></td>
                 <td><?php echo $row['approved']; ?></td>
                 <td><?php echo $row['gender']; ?></td>
+             
+                
+                <td>
+                    
+                </td>
             </tr>
             <?php endforeach; ?>
         </tbody>
