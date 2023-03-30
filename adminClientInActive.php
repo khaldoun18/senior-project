@@ -22,14 +22,24 @@ require_once "connection.php";
 
 <body>
 
-
-<nav class="navbar navbar-dark bg-dark">
-        <a class="navbar-brand">Tiger House</a>
-        <form class="form-inline ml-auto" action="index.php">
-            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Logout</button>
-        </form>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand">Tiger House</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                <form class="form-inline ml-auto" action="index.php">
+                    <button class="btn btn-primary" type="submit">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
-    
+
+
     <div class="wrapper">
 
    
@@ -73,7 +83,7 @@ require_once "connection.php";
    
 <h1>Inactive Clients</h1>
 
-<table>
+<table class="table table-bordered">
        
         
        <!-- Use a loop to iterate over the result set and display each row in a table row -->
@@ -106,7 +116,7 @@ else{
 <?php 
 foreach($result as $row): ?>
        <tr>
-           <td><img src="<?php echo $row['image']; ?>" alt=""> </td>
+       <td><img src="<?php echo $row['image']; ?>"  class="img-thumbnail" alt=""></td>
            <td><?php echo $row['client_id']; ?></td>
            <td><?php echo $row['name']; ?></td>
            <td><?php echo $row['email']; ?></td>
@@ -130,7 +140,7 @@ foreach($result as $row): ?>
                    <input type="hidden" name="approved" value="<?php echo $row['approved']; ?>">
                    <input type="hidden" name="join_date" value="<?php echo $row['join_date']; ?>">
                    <input type="hidden" name="image" value="<?php echo $row['image']; ?>">
-                   <button type="submit" name="submit">activate</button>
+                   <button type="submit" name="submit" class="btn btn-primary">activate</button>
                </form>
            </td>
            <td>
@@ -138,7 +148,7 @@ foreach($result as $row): ?>
 
                    <input type="hidden" name="client_id" value="<?php echo $row['client_id']; ?>">
 
-                   <button type="submit" name="submit">Block</button>
+                   <button type="submit" name="submit"  class="btn btn-danger">Block</button>
                </form>
            </td>
        </tr>

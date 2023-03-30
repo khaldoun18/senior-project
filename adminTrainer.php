@@ -22,12 +22,23 @@ if (!isset($_SESSION["admin_email"])) {
 
 <body>
   
-<nav class="navbar navbar-dark bg-dark">
-        <a class="navbar-brand">Tiger House</a>
-        <form class="form-inline ml-auto" action="index.php">
-            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Logout</button>
-        </form>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand">Tiger House</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                <form class="form-inline ml-auto" action="index.php">
+                    <button class="btn btn-primary" type="submit">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
+
     
     <div class="wrapper">
 
@@ -74,7 +85,7 @@ if (!isset($_SESSION["admin_email"])) {
 
 
     <h1>Trainer requests</h1>
-    <table>
+    <table class="table table-bordered">
         
         <tbody>
             <!-- Use a loop to iterate over the result set and display each row in a table row -->
@@ -108,7 +119,7 @@ if (!isset($_SESSION["admin_email"])) {
      <?php 
     foreach($result as $row): ?>
             <tr>
-                <td><img src="<?php echo $row['image']; ?>" alt=""></td>
+            <td><img src="<?php echo $row['image']; ?>"  class="img-thumbnail" alt=""></td>
                 <td><?php echo $row['trainer_id']; ?></td>
                 <td><?php echo $row['name']; ?></td>
                 <td><?php echo $row['trainer_email']; ?></td>
@@ -118,7 +129,7 @@ if (!isset($_SESSION["admin_email"])) {
                 <td><?php echo $row['approved']; ?></td>
                 <td><?php echo $row['join_date']; ?></td>
                 <td><?php echo $row['cover_letter']; ?></td>
-                <td><img src="<?php echo $row['resume']; ?>" alt=""></td>
+                <td><img src="<?php echo $row['resume']; ?>"  class="img-thumbnail" alt=""></td>
 
                 <td>
                     <form method="post" action="addTrainer.php">
@@ -133,7 +144,7 @@ if (!isset($_SESSION["admin_email"])) {
                         <input type="hidden" name="resume" value="<?php echo $row['resume']; ?>">
                         <input type="hidden" name="join_date" value="<?php echo $row['join_date']; ?>">
 
-                        <button type="submit" name="submit">Add</button>
+                        <button type="submit" name="submit" class="btn btn-primary">Add</button>
                     </form>
                 </td>
                 <td>
@@ -141,7 +152,7 @@ if (!isset($_SESSION["admin_email"])) {
 
                         <input type="hidden" name="trainer_id" value="<?php echo $row['trainer_id']; ?>">
 
-                        <button type="submit" name="submit">Reject</button>
+                        <button type="submit" name="submit" class="btn btn-danger">Reject</button>
                     </form>
                 </td>
 

@@ -22,14 +22,23 @@ if (!isset($_SESSION["admin_email"])) {
 
 <body>
 
-
-<nav class="navbar navbar-dark bg-dark">
-        <a class="navbar-brand">Tiger House</a>
-        <form class="form-inline ml-auto" action="index.php">
-            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Logout</button>
-        </form>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand">Tiger House</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                <form class="form-inline ml-auto" action="index.php">
+                    <button class="btn btn-primary" type="submit">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
-    
+
     <div class="wrapper">
 
    
@@ -75,8 +84,7 @@ if (!isset($_SESSION["admin_email"])) {
 
 
     <h1>Rejected Trainers</h1>
-    <table>
-  
+    <table class="table table-bordered">
         <tbody>
             <!-- Use a loop to iterate over the result set and display each row in a table row -->
             <?php
@@ -109,7 +117,7 @@ if (!isset($_SESSION["admin_email"])) {
      <?php 
     foreach($result as $row): ?>
             <tr>
-                <td><img src="<?php echo $row['image']; ?>" alt=""></td>
+            <td><img src="<?php echo $row['image']; ?>"  class="img-thumbnail" alt=""></td>
                 <td><?php echo $row['trainer_id']; ?></td>
                 <td><?php echo $row['name']; ?></td>
                 <td><?php echo $row['trainer_email']; ?></td>
@@ -119,8 +127,7 @@ if (!isset($_SESSION["admin_email"])) {
                 <td><?php echo $row['approved']; ?></td>
                 <td><?php echo $row['join_date']; ?></td>
                 <td><?php echo $row['cover_letter']; ?></td>
-                <td><img src="<?php echo $row['resume']; ?>" alt=""></td>
-
+                <td><img src="<?php echo $row['resume']; ?>"  class="img-thumbnail" alt=""></td>
              
               
 
