@@ -92,7 +92,7 @@
 
                             <div class="form-group">
                                 <label for="dob">Date of Birth:</label>
-                                <input type="date" class="form-control" id="dob" name="dob" placeholder="YYYY-MM-DD"
+                                <input type="date" class="form-control" id="dob" name="trainer_dob" placeholder="YYYY-MM-DD"
                                     required><br>
                             </div>
 
@@ -230,79 +230,72 @@
         </script>
         <?php
 
-    if (isset($_POST['fname'])) {
-        require_once "connection.php";
-        require_once "validate.php";
-        $name = validate($_POST['fname']);
-        $email = validate($_POST['trainer_email']);
-        $phone = validate($_POST['phone']);
-        $specialization=validate($_POST['Specialization']);
-        $yoe = validate($_POST['ex']);
-        $coverletter = validate($_POST['cover']);
 
-        $target = "trainerpic/";
-        $target_file = $target . basename($_FILES["image"]["name"]);
-        move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
-        $image_path = $target_file;
-        $password="";
-        $target1 = "resume/";
-        $target_file1 = $target1 . basename($_FILES["resume"]["name"]);
-        move_uploaded_file($_FILES["resume"]["tmp_name"], $target_file1);
-        $image_path1 = $target_file1;
-        $dob = $_POST['trainer_dob'];
-        $mysql_dob = date('Y-m-d', strtotime($dob));
-        $courses = validate($_POST['courses']);
-        $courselevel = validate($_POST['courselevel']);
-        $days = validate($_POST['days'])." ".validate($_POST['hours']);
-       
-    }
+if (isset($_POST['fname'])) {
+    require_once "connection.php";
+    require_once "validate.php";
+    $name = validate($_POST['fname']);
+    $email = validate($_POST['trainer_email']);
+    $phone = validate($_POST['phone']);
+    $specialization=validate($_POST['Specialization']);
+    $yoe = validate($_POST['ex']);
+    $coverletter = validate($_POST['cover']);
+
+    $target = "trainerpic/";
+    $target_file = $target . basename($_FILES["image"]["name"]);
+    move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+    $image_path = $target_file;
+    $password="";
+    $target1 = "resume/";
+    $target_file1 = $target1 . basename($_FILES["resume"]["name"]);
+    move_uploaded_file($_FILES["resume"]["tmp_name"], $target_file1);
+    $image_path1 = $target_file1;
+    $dob = $_POST['trainer_dob'];
+    $mysql_dob = date('Y-m-d', strtotime($dob));
+    $courses = validate($_POST['courses']);
+    $courselevel = validate($_POST['courselevel']);
+    $days = validate($_POST['days'])." ".validate($_POST['hours']);
 
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
     }
 
-    $sql = "insert into trainer  values (' ','$name', '$email',  '$password','$specialization', '0','$yoe',  '$coverletter','$image_path1','$image_path','$phone', NOW(),'$mysql_dob')";
+    // Check if email or phone number already exists
+    $check_sql = "SELECT * FROM trainer WHERE trainer_email='$email' OR phone='$phone'";
+    $check_result = mysqli_query($conn, $check_sql);
 
-    if (mysqli_query($conn, $sql)) {
-        echo "<script>alert('The form is sent')</script>";
-    } else {
-        echo "<script>alert('Something went wrong')</script>";
-    }
-
-
-
-    $select="select trainer_id from trainer where trainer_email='$email'";
-    $result = $conn->query($select);
-
-// Output the result
-if ($result->num_rows > 0) {
-  while($row = $result->fetch_assoc()) {
-    // Do something with the row data
-     $trainer_id=$row["trainer_id"]; 
-   
-  }
-} else {
-  echo "No results found.";
-}
-
-   
-    $sql = "insert into sport values ('','$courses','$courselevel','$days','$trainer_id' )";
-
-    if (mysqli_query($conn, $sql)) {
-        echo "<script>alert('You are Registerd')</script>";
-    } else {
+    if (mysqli_num_rows($check_result) > 0) {
         echo "<script>alert('The Email or the phone number is already used')</script>";
+    } else {
+        $sql = "insert into trainer  values (' ','$name', '$email',  '$password','$specialization', '0','$yoe',  '$coverletter','$image_path1','$image_path','$phone', NOW(),'$mysql_dob')";
+
+        if (mysqli_query($conn, $sql)) {
+            echo "<script>alert('The form is sent')</script>";
+
+            // Get the newly inserted trainer's ID
+            $select="select trainer_id from trainer where trainer_email='$email'";
+            $result = $conn->query($select);
+
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    $trainer_id=$row["trainer_id"]; 
+                }
+            } else {
+                echo "No results found.";
+            }
+
+            // Insert into the sport table
+            $sport_sql = "insert into sport values ('','$courses','$courselevel','$days','$trainer_id' )";
+
+            if (mysqli_query($conn, $sport_sql)) {
+                echo "<script>alert('You are Registerd')</script>";
+            } else {
+                echo "<script>alert('Something went wrong')</script>";
+            }
+        } else {
+            echo "<script>alert('Something went wrong')</script>";
+        }
     }
+
     mysqli_close($conn);
-
-
-
-
-
-
-
-    ?>
-
-</body>
-
-</html>
+}
