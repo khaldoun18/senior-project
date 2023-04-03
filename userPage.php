@@ -81,7 +81,7 @@ $stmt->close();
                     <a style="padding: 2rem ;" class="nav-link" href="myskills.php">My Skills</a>
                 </li>
                 <li class="nav-item">
-                    <a style="padding: 2rem ;" class="nav-link" href="">My Schedule</a>
+                    <a style="padding: 2rem ;" class="nav-link" href="scheduleClient.php">My Schedule</a>
                 </li>
 
 
@@ -100,12 +100,11 @@ $stmt->close();
                         </ul>
                     </div>
                 </li>
-
-
         </div>
 
 
     </nav>
+
     <div class="section-1">
         <h1>Welcome <?php echo $_SESSION["name"]; ?> to our club !!</h1>
     </div>
@@ -142,7 +141,7 @@ $stmt->close();
  FROM trainer
  INNER JOIN sport
  ON trainer.trainer_id = sport.trainer_id
- WHERE trainer.approved = 1 AND sport.sport_name = 'kickboxing'";
+ WHERE trainer.approved = 1 AND sport.sport_name = 'kickboxing' GROUP BY trainer.trainer_id";
 
 
           $result = $conn->query($sql);
@@ -154,43 +153,60 @@ $stmt->close();
                             <div class="glow">
 
                                 <img src="<?php echo $row['image']; ?>" alt=""><br>
-                                <h3>Name:<?php echo $row['name']; ?></h3><br>
+                                <h3>Name:<?php echo $row['trainer_name']; ?></h3><br>
                                 <h3>Years Of Experience: <?php echo $row['yoe']; ?></h3>
-                                <h4><?php echo $row['class_date']; ?></h4>
-                                <h4><?php echo $row['sport_name']; ?><?php echo $row['level']; ?></h4>
-                                <form method="post" action="addSession.php">
-                                    <div class="hidden">
-                                        <input type="hidden" name="class_date"
-                                            value="<?php echo $row['class_date']; ?>">
-                                        <input type="hidden" name="client_id"
-                                            value="<?php echo  $_SESSION["client_id"]; ?>">
-                                        <input type="hidden" name="name" value="<?php echo $row['name']; ?>">
-                                        <input type="hidden" name="sport_name"
-                                            value="<?php echo $row['sport_name']; ?>">
-                                        <input type="hidden" name="sport_id" value="<?php echo $row['sport_id']; ?>">
-                                    </div>
-                                    <button type="submit" name="submit">yes</button>
-                                </form>
+                               <?php  $class_dates_sql = "SELECT * FROM sport WHERE  sport_name='kickboxing' and trainer_id = ".$row['trainer_id'];
+                    $class_dates_result = $conn->query($class_dates_sql);
+                    if ($class_dates_result && mysqli_num_rows($class_dates_result) > 0) {
+                        ?>
+                        <form method="post" action="addSession.php">
+                            <div class="hidden">
+                                <input type="hidden" name="client_id" value="<?php echo $_SESSION["client_id"]; ?>">
+                                <input type="hidden" name="name" value="<?php echo $row['trainer_name']; ?>">
+                                <input type="hidden" name="sport_name" value="<?php echo $row['sport_name']; ?>">
+                               
+                                <input type="hidden" name="trainer_id" value="<?php echo $row['trainer_id']; ?>">
                             </div>
-                        </div>
-                        <?php endwhile; ?>
-                    </div>
-                    <?php } else {
-            echo "No trainers right now";
-          } ?>
-
-
-
-
-
+                            <h4>Select class date(s):</h4>
+                            <?php while ($class_date_row = mysqli_fetch_assoc($class_dates_result)) : ?>
+                                <input type="checkbox" name="class_dates[]" value="<?php echo $class_date_row['class_date']; ?>">
+                                <label for="class_date"><?php echo $class_date_row['class_date']; ?></label><br>
+                                <input type="hidden" name="sport_id" value="<?php echo $row['sport_id']; ?>">
+                            <?php endwhile; ?>
+                            <button type="submit" name="submit">Book</button>
+                        </form>
+                        <?php
+                    } else {
+                        echo "No classes available for this trainer";
+                    }
+                    ?>
                 </div>
             </div>
+        <?php endwhile; ?>
+    </div>
+<?php } else {
+    echo "No trainers right now";
+} ?>
 
-        </div>
+
+
+
+
+
+                            
+                            </div>
+                        </div>
+                        
+                    </div>
+            
+
+
+
+
 
 
         <div class="Gym-class">
-            <h1>Gym</h1>
+            <h1>Zumba</h1>
 
             <?php
       require_once "connection.php";
@@ -198,7 +214,7 @@ $stmt->close();
  FROM trainer
  INNER JOIN sport
  ON trainer.trainer_id = sport.trainer_id
- WHERE trainer.approved = 1 AND sport.sport_name = 'kickboxing'";
+ WHERE trainer.approved = 1 AND sport.sport_name = 'zumba'";
       $result = $conn->query($sql);
       if ($result && mysqli_num_rows($result) <= 0) {
         echo "No trainers right now";
@@ -208,62 +224,69 @@ $stmt->close();
 
       ?>
 
-            <div class="row">
+<div class="row">
 
 
 
-                <?php
-        $sql = "SELECT trainer.*, sport.*
- FROM trainer
- INNER JOIN sport
- ON trainer.trainer_id = sport.trainer_id
- WHERE trainer.approved = 1 AND sport.sport_name = 'zumba'";
-        $result = $conn->query($sql);
-        if ($result && mysqli_num_rows($result) > 0) {
-        ?>
-                <div class="row">
-                    <?php while ($row = mysqli_fetch_assoc($result)) : ?>
-                    <div class="col-md-4">
-                        <div class="glow">
-
-                            <img src="<?php echo $row['image']; ?>" alt=""><br>
-                            <h3>Name:<?php echo $row['name']; ?></h3><br>
-                            <h3>Years Of Experience: <?php echo $row['yoe']; ?></h3>
-                            <h4><?php echo $row['class_date']; ?></h4>
-                            <h4><?php echo $row['sport_name']; ?><?php echo $row['level']; ?></h4>
-                            <form method="post" action="addSession.php">
-                                <div class="hidden">
-                                    <input type="hidden" name="class_date" value="<?php echo $row['class_date']; ?>">
-                                    <input type="hidden" name="client_id"
-                                        value="<?php echo  $_SESSION["client_id"]; ?>">
-                                    <input type="hidden" name="name" value="<?php echo $row['name']; ?>">
-                                    <input type="hidden" name="sport_name" value="<?php echo $row['sport_name']; ?>">
-                                    <input type="hidden" name="sport_id" value="<?php echo $row['sport_id']; ?>">
-                                </div>
+<?php
+$sql = "SELECT trainer.*, sport.*
+FROM trainer
+INNER JOIN sport
+ON trainer.trainer_id = sport.trainer_id
+WHERE trainer.approved = 1 AND sport.sport_name = 'zumba' GROUP BY trainer.trainer_id";
 
 
+$result = $conn->query($sql);
+if ($result && mysqli_num_rows($result) > 0) {
+?>
+<div class="row">
+    <?php while ($row = mysqli_fetch_assoc($result)) : ?>
+    <div class="col-md-4">
+        <div class="glow">
+
+            <img src="<?php echo $row['image']; ?>" alt=""><br>
+            <h3>Name:<?php echo $row['trainer_name']; ?></h3><br>
+            <h3>Years Of Experience: <?php echo $row['yoe']; ?></h3>
+           <?php  $class_dates_sql = "SELECT * FROM sport WHERE sport_name='zumba' and trainer_id = ".$row['trainer_id'] ;
+$class_dates_result = $conn->query($class_dates_sql);
+if ($class_dates_result && mysqli_num_rows($class_dates_result) > 0) {
+    ?>
+    <form method="post" action="addSession.php">
+        <div class="hidden">
+            <input type="hidden" name="client_id" value="<?php echo $_SESSION["client_id"]; ?>">
+            <input type="hidden" name="name" value="<?php echo $row['name']; ?>">
+            <input type="hidden" name="sport_name" value="<?php echo $row['sport_name']; ?>">
+           
+            <input type="hidden" name="trainer_id" value="<?php echo $row['trainer_id']; ?>">
+        </div>
+        <h4>Select class date(s):</h4>
+        <?php while ( $class_date_row = mysqli_fetch_assoc($class_dates_result)) : ?>
+            <input type="checkbox" name="class_dates[]" value="<?php echo $class_date_row['class_date']; ?>">
+            <label for="class_date"><?php echo $class_date_row['class_date']; ?></label><br>
+            <input type="hidden" name="sport_id" value="<?php echo $row['sport_id']; ?>">
+        <?php endwhile; ?>
+        <button type="submit" name="submit">Book</button>
+    </form>
+    <?php
+} else {
+    echo "No classes available for this trainer";
+}
+?>
+</div>
+</div>
+<?php endwhile; ?>
+</div>
+<?php } else {
+echo "No trainers right now";
+} ?>
 
 
 
 
-                                <button type="submit" name="submit">yes</button>
-                            </form>
-                        </div>
-                    </div>
-                    <?php endwhile; ?>
-                </div>
-                <?php } else {
-          echo "No trainers right now";
-        } ?>
 
 
-
-
-
-
-
-
-            </div>
+        
+        </div>
 
 
 

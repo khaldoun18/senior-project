@@ -24,22 +24,23 @@ if (!isset($_SESSION["admin_email"])) {
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand">Tiger House</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                <form class="form-inline ml-auto" action="index.php">
-                    <button class="btn btn-primary" type="submit">Logout</a>
-                    </li>
-                </ul>
-            </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark custom-navbar fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.php">Tiger House</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="btn btn-primary logout-btn" href="index.php">Logout</a>
+                    <!-- Add "btn" and "btn-primary", remove "nav-link" -->
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <div class="wrapper">
 
@@ -47,12 +48,17 @@ if (!isset($_SESSION["admin_email"])) {
         <div class="sidebar">
 
             <ul>
-                <li><a href="admin.php">Dashboard</a></li>
+                <li>
+                    <a class="btn btn-secondary" href="admin.php">
+                        <img src="icon/dashboard.png" alt="Dashboard" width="20" height="20" class="me-2">
+                        Dashboard
+                    </a>
+                </li>
 
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        Clients
+                        <i class="icon client"></i> Clients
                     </button>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="adminClient.php">Clients requests</a></li>
@@ -63,23 +69,42 @@ if (!isset($_SESSION["admin_email"])) {
                     </ul>
                 </div>
 
-                <div class="dropdown"><br>
+                <div class="dropdown"><br><br>
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        Trainers
+                        <i class="icon trainers"></i> Trainers
                     </button>
-                    <ul class="dropdown-menu"><br>
+
+
+                    <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="adminTrainer.php">Trainers requests</a></li>
                         <li><a class="dropdown-item" href="adminTrainerActive.php">Active Trainers</a></li>
                         <li><a class="dropdown-item" href="adminTrainerInActive.php">In Active Trainers</a></li>
                         <li><a class="dropdown-item" href="adminTrainerBlock.php">Blocked Trainers</a></li>
                         <li><a class="dropdown-item" href="adminTrainerReject.php">Rejected Trainer</a></li>
                     </ul>
-                </div><br>
-                <li><a href="adminTrainer.php">Trainers</a></li>
-                <li><a href="manageplans.php">Membership Plans</a></li>
-                <li><a href="#">Schedules</a></li>
-                <li><a href="#">Settings</a></li>
+                </div>
+                <li><br><br>
+                    <a class="btn btn-secondary" href="manageplans.php">
+                        <img src="icon/membershipplan.png" alt="Membership Plan" class="btn-icon-membership">
+                        Membership Plans
+                    </a>
+                </li>
+
+
+                <li>
+                    <a class="btn btn-secondary" href="#">
+                        <img src="icon/schedule.png" alt="Schedules" class="btn-icon-schedule">
+                        Schedules
+                    </a>
+                </li>
+
+                <li>
+                    <a class="btn btn-secondary" href="#">
+                        <img src="icon/settings.png" alt="Settings" class="btn-icon-settings">
+                        Settings
+                    </a>
+                </li>
 
             </ul>
         </div>

@@ -196,14 +196,14 @@
         <h1>Our Offers!</h1>
         <div class="container">
             <div class="row">
-                <?php 
-        require_once "connection.php";
-        $sql = "SELECT * FROM package ";
-        $result = $conn->query($sql);
-        if ($result && mysqli_num_rows($result) > 0) {
-      ?>
+                <?php
+                require_once "connection.php";
+                $sql = "SELECT * FROM package ";
+                $result = $conn->query($sql);
+                if ($result && mysqli_num_rows($result) > 0) {
+                ?>
 
-                <?php while($row = mysqli_fetch_assoc($result)): ?>
+                <?php while ($row = mysqli_fetch_assoc($result)) : ?>
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
@@ -217,8 +217,8 @@
                 <?php endwhile; ?>
 
                 <?php } else {
-        echo "No trainers right now";
-      } ?>
+                    echo "No trainers right now";
+                } ?>
             </div>
         </div>
     </div>

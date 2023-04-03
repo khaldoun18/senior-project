@@ -24,9 +24,6 @@ require_once "connection.php";
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark    ">
- 
-
- 
  <a class="navbar-brand" href="userPage.php">Tiger House</a>
  <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
      data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -42,7 +39,7 @@ require_once "connection.php";
          </li> 
      <li class="nav-item">
              <a style="padding: 2rem ;" class="nav-link"
-                 href="">My Schedule</a>
+                     href="scheduleClient.php">My Schedule</a>
          </li>
       
         
