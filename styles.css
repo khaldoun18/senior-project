@@ -163,3 +163,39 @@ h4{
     color: #fff;
     transform: scale(1.05);
 }
+.bmi {
+    background-color:white;
+    padding: 3rem;
+}
+.bmi h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.icon-input {
+    position: relative;
+}
+.icon-input input {
+    padding-left: 2.5rem;
+}
+.icon-input i {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.25rem;
+}
+.form-check {
+    margin-bottom: 1rem;
+}
+.bmi-icon {
+    margin-right: 0.5rem;
+}
+.icon-ruler,
+.icon-calculator,
+.icon-weight 
+{
+color: coral;
+}
+.gender-icon {
+    color: coral    ;
+}

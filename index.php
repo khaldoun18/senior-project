@@ -12,10 +12,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://kit.fontawesome.com/f4895fe1cd.js" crossorigin="anonymous"></script>
 
     <title>Gym</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles2.css">
 </head>
 
 <body>
@@ -154,31 +155,43 @@
 
 
 
-
     <div class="bmi">
         <div class="container">
-            <h2>Check Your BMI Now</h2>
+        <h2><i class="fas fa-heartbeat bmi-icon"></i>Check Your BMI Now</h2>
             <div class="row">
                 <div class="col-lg-6">
                     <div class="my-form">
                         <form action="">
-                            <label class="la" for="height">Height in meters:</label>
-                            <input type="number" step="0.01" class="form-control" id="height" name="height"
-                                oninput="updateImage()" required><br><br>
+                            <div class="mb-3 icon-input">
+                                <i class="fas fa-ruler-vertical icon-ruler"></i>
+                                <input type="number" step="0.01" class="form-control" id="height" name="height"
+                                    oninput="updateImage()" required placeholder="Height in meters">
+                            </div>
 
-                            <label class="la" for="weight">Weight in KG:</label>
-                            <input type="number" step="0.01" class="form-control" id="weight" name="weight"
-                                oninput="updateImage()" required><br><br>
+                            <div class="mb-3 icon-input">
+                                <i class="fas fa-weight icon-weight"></i>
+                                <input type="number" step="0.01" class="form-control" id="weight" name="weight"
+                                    oninput="updateImage()" required placeholder="Weight in KG">
+                            </div>
 
-                            <label for="gender">Gender:</label>
-                            <input type="radio" id="male" name="gender" value="male" checked>
-                            <label for="male">Male</label>
-                            <input type="radio" id="female" name="gender" value="female">
-                            <label for="female">Female</label><br><br>
-
-                            <label class="la" for="bmi">BMI</label>
-                            <input type="number" step="0.01" class="form-control" id="bmi" name="bmi"
-                                oninput="updateImage()" required><br><br>
+                            <div class="mb-3">
+                                <label class="form-label" for="gender"><i class="fas fa-venus-mars gender-icon"></i> Gender</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gender" id="male" value="male"
+                                        checked>
+                                    <label class="form-check-label" for="male">Male</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gender" id="female"
+                                        value="female">
+                                    <label class="form-check-label" for="female">Female</label>
+                                </div>
+                            </div>
+                            <div class="mb-3 icon-input">
+                                <i class="fas fa-calculator icon-calculator"></i>
+                                <input type="number" step="0.01" class="form-control" id="bmi" name="bmi"
+                                    oninput="updateImage()" required placeholder="BMI">
+                            </div>
                         </form>
                     </div>
                 </div>
