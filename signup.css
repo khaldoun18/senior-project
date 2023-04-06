@@ -109,6 +109,24 @@ body {
   padding: 10px;
 }
 
+.name-icon,
+.email-icon,
+.phone-icon,
+.address-icon,
+.gender-icon,
+.height-icon,
+.weight-icon,
+.bmi-icon,
+.dob-icon,
+.image-icon{
+  color: coral;
+}
+
+.icon-email,
+.icon-pass{
+  color:coral;
+}
+
 /* Media queries for smaller screens */
 @media (max-width: 768px) {
   .navbar-brand {

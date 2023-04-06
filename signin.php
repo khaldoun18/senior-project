@@ -8,8 +8,12 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="signup.css">
     <title>Document</title>
@@ -17,61 +21,61 @@ session_start();
 
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="index.php">Tiger House</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="aboutUs.php">About Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="howWeHire.php">How we hire</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="signup.php">Sign up</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="signin.php">Login</a>
-                </li>
-            </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.php">Tiger House</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="aboutUs.php">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="howWeHire.php">How we hire</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="signup.php">Sign up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="signin.php">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="login">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-6 order-md-1">
+                    <div class="my-form">
+                        <form action="#" method="POST">
+                            <div class="form-group">
+                                <label class="la" for="email"><i class="fas fa-envelope icon-email"></i> Email</label>
+                                <input type="email" class="form-control" id="email" name="email"
+                                    placeholder="Enter your email" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="la" for="password"><i class="fas fa-lock icon-pass"></i> Password</label>
+                                <input type="password" class="form-control" id="password" name="password"
+                                    placeholder="Enter your password" required>
+                            </div>
+                            <input class="sub btn btn-primary" type="submit" value="LOG IN">
+                        </form>
+
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 order-md-2">
+                    <img class="img-login" src="pics/boxing-gloves.png" alt="Boxing gloves icon">
+                </div>
+            </div>
         </div>
     </div>
-</nav>
 
-<div class="login">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-6">
-                <div class="my-form">
-                    <form action="#" method="POST">
-
-                        <label class="la" for="email">Email:</label>
-                        <input type="email" class="form-control" id="email" name="email" required><br><br>
-
-                        <label class="la" for="password">Password:</label>
-                        <input type="password" class="form-control" id="password" name="password" required><br><br>
-
-                        <input class="sub btn btn-outline-dark" type="submit" value="LOG IN">
-                    </form>
-                </div>
-
-           
-
-                </div>
-
-<div class="col-12 col-md-6">
-    <img class="img-login" src="pics/boxing-gloves.png" alt="">
-</div>
-
-</div>
-</div>
-</div>
-<?php
+    <?php
 if (isset($_POST['email'])) {
     require_once "connection.php";
     require_once "validate.php";
@@ -115,4 +119,5 @@ if (isset($_POST['email'])) {
 session_destroy();
 ?>
 </body>
+
 </html>
