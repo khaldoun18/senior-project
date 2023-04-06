@@ -80,7 +80,7 @@
                                 <label for="name">Full Name:</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-user fa-2x"></i></span>
+                                        <span class="input-group-text"><i class="fas fa-user icon-user"></i></span>
                                     </div>
                                     <input type="text" class="form-control" id="name" name="fname"
                                         placeholder="Full Name" required>
@@ -91,7 +91,8 @@
                                 <label for="email">Email:</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-envelope fa-2x"></i></span>
+                                        <span class="input-group-text"><i
+                                                class="fas fa-envelope icon-envelope"></i></span>
                                     </div>
                                     <input type="email " class="form-control" id="trainer_email" name="trainer_email"
                                         placeholder="Email" required>
@@ -102,7 +103,7 @@
                                 <label for="phone">Phone Number:</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-phone fa-2x"></i></span>
+                                        <span class="input-group-text"><i class="fas fa-phone icon-phone"></i></span>
                                     </div>
                                     <input type="number" class="form-control" id="phone" name="phone" pattern="[0-9]{8}"
                                         placeholder="Phone Number" required>
@@ -113,7 +114,8 @@
                                 <label for="dob">Date of Birth:</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-calendar fa-2x"></i></span>
+                                        <span class="input-group-text"><i
+                                                class="fas fa-calendar icon-calendar"></i></span>
                                     </div>
                                     <input type="date" class="form-control" id="dob" name="trainer_dob"
                                         placeholder="YYYY-MM-DD" required>
@@ -124,7 +126,8 @@
                                 <label for="Specialization">Specialization:</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-briefcase fa-2x"></i></span>
+                                        <span class="input-group-text"><i
+                                                class="fas fa-briefcase icon-briefcase"></i></span>
                                     </div>
                                     <input type="text" class="form-control" id="Specialization" name="Specialization"
                                         placeholder="Specialization" required>
@@ -135,7 +138,8 @@
                                 <label for="ex">Years of Experience:</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-history fa-2x"></i></span>
+                                        <span class="input-group-text"><i
+                                                class="fas fa-history icon-history"></i></span>
                                     </div>
                                     <input type="number" class="form-control" id="ex" name="ex"
                                         placeholder="Years of Experience" required>
@@ -146,7 +150,7 @@
                                 <label for="image">Profile Picture:</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-image fa-2x"></i></span>
+                                        <span class="input-group-text"><i class="fas fa-image icon-image"></i></span>
                                     </div>
                                     <input type="file" class="form-control" id="image" name="image" required>
                                 </div>
@@ -162,19 +166,18 @@
                                 <label for="resume">Resume:</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-file-alt fa-2x"></i></span>
+                                        <span class="input-group-text"><i class="fas fa-file-alt icon-file"></i></span>
                                     </div>
-                                    <input type="file" class="form-control" id="resume" name="resume" required>
+                                    <input type="file" class="form-control custom-file-input" id="resume" name="resume"
+                                        required>
                                 </div>
                             </div>
-
-
 
                             <div class="form-group">
                                 <label for="courses">Course:</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-book fa-2x"></i></span>
+                                        <span class="input-group-text"><i class="fas fa-book icon-book"></i></span>
                                     </div>
                                     <select name="courses" id="courses" class="form-control" required>
                                         <option value="kickboxing">Kickboxing</option>
@@ -187,8 +190,7 @@
                                 <label for="courselevel">Course Level:</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text"><i
-                                                class="fas fa-sort-numeric-up fa-2x"></i></span>
+                                        <span class="input-group-text"><i class="fas fa-sort-numeric-up icon-course "></i></span>
                                     </div>
                                     <select name="courselevel" id="courselevel" class="form-control" required>
                                         <option value="1">1</option>
@@ -202,7 +204,7 @@
                                 <label for="days">Class Day:</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-calendar-day fa-2x"></i></span>
+                                        <span class="input-group-text"><i class="fas fa-calendar-day icon-class "></i></span>
                                     </div>
                                     <select name="days" id="days" class="form-control" required>
                                         <option value="monday">Monday</option>
@@ -218,7 +220,7 @@
                                 <label for="hours">Class hours:</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-clock fa-2x"></i></span>
+                                        <span class="input-group-text"><i class="fas fa-clock icon-clock"></i></span>
                                     </div>
                                     <select class="form-control" name="hours" id="hours">
                                         <option value="8:00:00">8:00-9:30 AM</option>
@@ -231,9 +233,10 @@
                             </div>
 
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary submit-button"><i class="fas fa-paper-plane"></i>Submit</button>
+                                <button type="submit" class="btn btn-primary submit-button"><i
+                                        class="fas fa-paper-plane"></i>Submit</button>
                             </div>
-                      
+
                         </form>
                     </div>
                 </div>

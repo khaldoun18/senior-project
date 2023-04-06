@@ -77,17 +77,36 @@ body {
   box-shadow: 0 0 10px #ccc;
 }
 
-.height-icon,
-.name-icon,
-.email-icon,
-.phone-icon,
-.address-icon,
-.gender-icon,
-.weight-icon,
-.bmi-icon,
-.dob-icon,
-.image-icon {
+
+.icon-envelope,
+.icon-briefcase,
+.icon-history
+{
+  font-size: 1.5rem;
   color: coral;
+}
+.icon-file,
+.icon-image
+{
+  font-size:1.5rem;
+  color: coral;
+}
+.icon-phone{
+  font-size: 1.46rem;
+  color: coral;
+}
+.icon-calendar,
+.icon-user,
+.icon-class,
+.icon-clock,
+.icon-course,
+.icon-book
+{
+  font-size: 1.7rem;
+  color: coral;
+}
+.form-group{
+  padding: 10px;
 }
 
 /* Media queries for smaller screens */
