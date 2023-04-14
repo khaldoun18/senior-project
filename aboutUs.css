@@ -1,0 +1,86 @@
+* {
+  margin: 0; /* Reset margin to 0 for all elements */
+}
+.navbar-brand {
+  font-size: 200%; /* Increase font size of the navbar brand to 200% */
+  padding-left: 2rem; /* Add padding to the left of the navbar brand */
+}
+body {
+  margin: 0; /* Set margin to 0 */
+  background-color: #fff; /* Set background color to white */
+  color: #191919; /* Set text color to black */
+  font-family: "Pacifico", cursive; /* Set font to Pacifico */
+  text-align: center; /* Center align text */
+}
+
+.navbar-nav {
+  padding-right: 2rem; /* Add padding to the right of the navbar navigation items */
+}
+
+.machines {
+  padding: 20px; /* sets width to 70% */
+  border-radius: 15%;
+  width: 80%;
+}
+.machine {
+  border-radius: 10%;
+  max-width: 90%;
+}
+
+.trainer-image {
+  width: 85%; /* sets width to 85% */
+}
+
+.ourEquipments {
+  margin-top: 4rem; /* adds 4rem margin to the top */
+  margin-bottom: 2rem; /* adds 2rem margin to the bottom */
+}
+
+.eq {
+  padding-top: 2rem; /* adds 2rem padding to the top */
+  padding: bottom 2rem; /* adds 2rem padding to the bottom */
+  margin-top: 2rem; /* adds 2rem margin to the top */
+  margin-bottom: 2rem; /* adds 2rem margin to the bottom */
+  transition: all 0.3s ease; /* sets transition effect for 0.3s */
+  cursor: pointer; /* sets cursor type to pointer */
+}
+
+.eq:hover {
+  background-color: #191919; /* sets background color to dark gray on hover */
+  color: #fff; /* sets text color to white on hover */
+  transform: scale(1.05); /* scales element to 1.05 on hover */
+}
+
+.section-6 {
+  background-color: #191919; /* sets background color to dark gray */
+  color: #fff; /* sets text color to white */
+  margin-top: 4rem; /* adds 4rem margin to the top */
+  padding-top: 3rem; /* adds 3rem padding to the top */
+  padding-bottom: 4rem; /* adds 4rem padding to the bottom */
+}
+.card {
+  border: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 10px;
+  margin: 4rem; /* adds 4rem margin */
+  transition: all 0.3s ease; /* sets transition effect for 0.3s */
+  cursor: pointer; /* sets cursor type to pointer */
+  border-radius: 20px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  background-color: #191919; /* sets background color to dark gray on hover */
+  color: #fff; /* sets text color to white on hover */
+  transform: scale(1.2); /* scales element to 1.2 on hover */
+}
+
+.card-img-top {
+  border-radius: 10px 10px 0 0;
+}
+
+.card-title {
+  font-size: 24px;
+  margin-top: 20px;
+}

@@ -21,6 +21,50 @@ if (!isset($_SESSION["admin_email"])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="admin.css">
     <title>Document</title>
+    <style>
+  table {
+  border-collapse: separate;
+  border-spacing: 0; /* Add space between rows */
+  width: 100%;
+}
+
+th, td {
+  padding: 8px;
+  border: 1px solid #dee2e6; /* Add border to table cells */
+}
+
+thead {
+  background-color: #6c757d;
+  color: white;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #f8f9fa;
+}
+
+tbody tr:hover {
+  background-color: #dee2e6;
+}
+
+.table {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.main-content {
+  margin-top: 50px;
+}
+
+.img-thumbnail {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+
+/* Remove border on top of the button */
+.table td .btn {
+  border-top: none !important;
+}
+</style>
 </head>
 
 <body>
@@ -35,7 +79,6 @@ if (!isset($_SESSION["admin_email"])) {
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
                     <a class="btn btn-primary logout-btn" href="index.php">Logout</a>
-                    <!-- Add "btn" and "btn-primary", remove "nav-link" -->
                 </li>
             </ul>
         </div>
@@ -55,7 +98,7 @@ if (!isset($_SESSION["admin_email"])) {
                 </li>
 
 
-                <div class="dropdown">
+                <div class="dropdown"><br>
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         <i class="icon client"></i> Clients
@@ -67,6 +110,7 @@ if (!isset($_SESSION["admin_email"])) {
                         <li><a class="dropdown-item" href="adminClientInActive.php">In Active Clients</a></li>
                         <li><a class="dropdown-item" href="adminClientBlock.php">Blocked Clients</a></li>
                         <li><a class="dropdown-item" href="adminClientReject.php">Rejected Clients</a></li>
+                        <li><a class="dropdown-item" href="clientClassRequest.php">Class Request</a></li>
                     </ul>
                 </div>
                 
@@ -81,6 +125,7 @@ if (!isset($_SESSION["admin_email"])) {
   <li><a class="dropdown-item" href="adminTrainerInActive.php">In Active Trainers</a></li>
   <li><a class="dropdown-item" href="adminTrainerBlock.php">Blocked Trainers</a></li>
   <li><a class="dropdown-item" href="adminTrainerReject.php">Rejected Trainer</a></li>
+  <li><a class="dropdown-item" href="adminClassApprove.php">Class approve</a></li>
 </ul>
 </div>
                 
@@ -92,21 +137,22 @@ if (!isset($_SESSION["admin_email"])) {
                 </li>
 
 
-                <li>
-                    <a class="btn btn-secondary" href="#">
+                <li><br>
+                    <a class="btn btn-secondary" href="allSchedule.php">
                         <img src="icon/schedule.png" alt="Schedules" class="btn-icon-schedule">
                         Schedules
                     </a>
                 </li>
 
-                <li>
-                    <a class="btn btn-secondary" href="#">
-                        <img src="icon/settings.png" alt="Settings" class="btn-icon-settings">
-                        Settings
-                    </a>
-                </li>
+                <li><br>
+  <a class="btn btn-secondary" href="#">
+    <img src="icon/settings.png" alt="Settings" class="btn-icon-settings">
+    Settings
+  </a>
+</li>
 
             </ul>
+            
         </div>
         <div class="main-content">
             <h1>Trainer requests</h1>

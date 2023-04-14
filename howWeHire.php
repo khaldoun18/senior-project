@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.1/dist/sweetalert2.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="signup.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="index.css">
     <title>Document</title>
 </head>
 
@@ -80,7 +80,8 @@
                                 <label for="name">Full Name:</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-user icon-user"></i></span>
+                                        <span class="input-group-text"><i class="fas fa-user fa-spin icon-user"
+                                                style="color: #ff7f50;"></i></span>
                                     </div>
                                     <input type="text" class="form-control" id="name" name="fname"
                                         placeholder="Full Name" required>
@@ -91,8 +92,7 @@
                                 <label for="email">Email:</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text"><i
-                                                class="fas fa-envelope icon-envelope"></i></span>
+                                        <span class="input-group-text"><i class="fas fa-envelope fa-spin icon-envelope" style="color: #ff7f50;"></i></span>
                                     </div>
                                     <input type="email " class="form-control" id="trainer_email" name="trainer_email"
                                         placeholder="Email" required>
@@ -103,7 +103,7 @@
                                 <label for="phone">Phone Number:</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-phone icon-phone"></i></span>
+                                        <span class="input-group-text"><i class="fas fa-phone fa-spin icon-phone" style="color: #ff7f50;"></i></span>
                                     </div>
                                     <input type="number" class="form-control" id="phone" name="phone" pattern="[0-9]{8}"
                                         placeholder="Phone Number" required>
@@ -114,8 +114,7 @@
                                 <label for="dob">Date of Birth:</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text"><i
-                                                class="fas fa-calendar icon-calendar"></i></span>
+                                        <span class="input-group-text"><i class="fas fa-calendar-alt fa-spin icon-calendar" style="color: #ff7f50;"></i></span>
                                     </div>
                                     <input type="date" class="form-control" id="dob" name="trainer_dob"
                                         placeholder="YYYY-MM-DD" required>
@@ -126,8 +125,7 @@
                                 <label for="Specialization">Specialization:</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text"><i
-                                                class="fas fa-briefcase icon-briefcase"></i></span>
+                                        <span class="input-group-text"><i class="fas fa-briefcase fa-spin icon-briefcase" style="color: #ff7f50;"></i></span>
                                     </div>
                                     <input type="text" class="form-control" id="Specialization" name="Specialization"
                                         placeholder="Specialization" required>
@@ -137,9 +135,8 @@
                             <div class="form-group">
                                 <label for="ex">Years of Experience:</label>
                                 <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i
-                                                class="fas fa-history icon-history"></i></span>
+                                    <div class="input-group-prepend"> 
+                                        <span class="input-group-text"><i class="fas fa-history fa-spin icon-history" style="color: #ff7f50;"></i></span>
                                     </div>
                                     <input type="number" class="form-control" id="ex" name="ex"
                                         placeholder="Years of Experience" required>
@@ -150,7 +147,7 @@
                                 <label for="image">Profile Picture:</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-image icon-image"></i></span>
+                                        <span class="input-group-text"><i class="fas fa-image fa-spin icon-image" style="color: #ff7f50;"></i></span>
                                     </div>
                                     <input type="file" class="form-control" id="image" name="image" required>
                                 </div>
@@ -166,75 +163,18 @@
                                 <label for="resume">Resume:</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-file-alt icon-file"></i></span>
+                                        <span class="input-group-text"><i class="fas fa-file-alt fa-spin icon-file" style="color: #ff7f50;"></i></span>
                                     </div>
                                     <input type="file" class="form-control custom-file-input" id="resume" name="resume"
                                         required>
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label for="courses">Course:</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-book icon-book"></i></span>
-                                    </div>
-                                    <select name="courses" id="courses" class="form-control" required>
-                                        <option value="kickboxing">Kickboxing</option>
-                                        <option value="zumba">Zumba</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="courselevel">Course Level:</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-sort-numeric-up icon-course "></i></span>
-                                    </div>
-                                    <select name="courselevel" id="courselevel" class="form-control" required>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="days">Class Day:</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-calendar-day icon-class "></i></span>
-                                    </div>
-                                    <select name="days" id="days" class="form-control" required>
-                                        <option value="monday">Monday</option>
-                                        <option value="tuesday">Tuesday</option>
-                                        <option value="wednesday">Wednesday</option>
-                                        <option value="thursday">Thursday</option>
-                                        <option value="friday">Friday</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="hours">Class hours:</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-clock icon-clock"></i></span>
-                                    </div>
-                                    <select class="form-control" name="hours" id="hours">
-                                        <option value="8:00:00">8:00-9:30 AM</option>
-                                        <option value="9:30:00">9:30-11:00 AM</option>
-                                        <option value="17:00:00">5:00-6:30 PM</option>
-                                        <option value="18:30:00">6:30-8:00 PM</option>
-                                        <option value="20:00:00">8:00-9:30 PM</option>
-                                    </select>
-                                </div>
-                            </div>
+                           
 
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary submit-button"><i
-                                        class="fas fa-paper-plane"></i>Submit</button>
+                                        class="fas fa-paper-plane fa-spin"></i>Submit</button>
                             </div>
 
                         </form>
@@ -282,10 +222,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    <h3>+961/00000000</h3>
+                <h3>+961/70545492</h3>
+                    <h3>+961/70820049</h3>
                 </div>
                 <div class="col-sm-6">
-                    <h3>example@gmail.com</h3>
+                <h3>Tigerhouse775@gmail.com</h3>
                 </div>
             </div>
         </div>
@@ -326,14 +267,7 @@
         $image_path1 = $target_file1;
         $dob = $_POST['trainer_dob'];
         $mysql_dob = date('Y-m-d', strtotime($dob));
-        $courses = validate($_POST['courses']);
-        $courselevel = validate($_POST['courselevel']);
-        $days = validate($_POST['days']) . " " . validate($_POST['hours']);
-        $mysql_dob = date('Y-m-d', strtotime($dob));
-        $courses = validate($_POST['courses']);
-        $courselevel = validate($_POST['courselevel']);
-        $days = validate($_POST['days']) . " " . validate($_POST['hours']);
-        $time = validate($_POST['hours']);
+      
     }
 
     if (!$conn) {
@@ -353,21 +287,12 @@
 
     if (mysqli_query($conn, $sql)) {
         $flag = 1;
+        echo "<script>alert('form is sent!')</script>";
     } else {
         echo "<script>alert('Something went wrong')</script>";
     }
 
-    $trainer_id = mysqli_insert_id($conn);
-
-    $sql = "INSERT INTO sport VALUES ('','$courses','$courselevel','$days','$trainer_id','$time' )";
-
-    if (mysqli_query($conn, $sql)) {
-        if ($flag == 1) {
-            echo "<script>alert('The form is sent')</script>";
-        }
-    } else {
-        echo "<script>alert('Something went wrong')</script>";
-    }
+    
 
     mysqli_close($conn);
     ?>

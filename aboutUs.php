@@ -12,7 +12,7 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <script src="https://kit.fontawesome.com/f4895fe1cd.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="aboutUs.css" />
     <title>Document</title>
 </head>
 
@@ -42,7 +42,10 @@
             </div>
         </div>
     </nav>
+
+
     <h1 style="margin-top: 3rem;">Welcome to Tiger House, Where Fitness Meets Fun!</h1>
+
     <div class="container h">
         <h4>At Tiger House, we believe that fitness should be both effective and enjoyable. That's why we've created a
             gym that offers a wide range of equipment
@@ -55,8 +58,11 @@
 
 
     <img class="machine img-fluid" src="pics/per.jpg" alt="">
+
+
     <div class="ourEquipments">
         <h2 style="margin-bottom: 6rem;">Our equipments:</h2>
+        
         <div class="container">
             <div class="row eq">
                 <div class="col-sm-6">
@@ -66,14 +72,18 @@
                         an individual's fitness level. With various settings for speed, incline, and workout programs,
                         treadmills can be used for everything from endurance training to interval sprints.</h4>
                 </div>
+                
                 <div class="col-sm-6">
                     <img class="machines img-fluid" src="pics/tread.jpg" alt="">
                 </div>
+
             </div>
+
             <div class="row eq">
                 <div class="col-sm-6">
                     <img class="machines img-fluid" src="pics/ropes.jpg" alt="">
                 </div>
+
                 <div class="col-sm-6">
                     <h2>Weight machines</h2>
                     <h4>Weight machines provide targeted strength training for specific muscle groups. From leg presses
@@ -111,18 +121,20 @@
                 <div class="card text-center">
                     <img class="card-img-top" src="pics/trainer2.jpg" alt="Trainer 2">
                     <div class="card-body">
-                        <h2 class="card-title">Fayez</h2>
+                    <h2 class="card-title">Khaldoun</h2>
                     </div>
                 </div>
             </div>
+
             <div class="col-md-4 col-sm-12 mb-5">
                 <div class="card text-center">
                     <img class="card-img-top" src="pics/trainer3.jpg" alt="Trainer 3">
                     <div class="card-body">
-                        <h2 class="card-title">Fayez</h2>
+                        <h2 class="card-title">Alaa</h2>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 
@@ -131,10 +143,11 @@
             <h2 class="text-center mb-5">Feel free to contact us!</h2>
             <div class="row">
                 <div class="col-sm-6 text-center">
-                    <h3 class="mb-4">+961/00000000</h3>
+                    <h3 class="mb-4">+961/70545492</h3>
+                    <h3 class="mb-4">+961/70820049</h3>
                 </div>
                 <div class="col-sm-6 text-center">
-                    <h3 class="mb-4">example@gmail.com</h3>
+                <h3 class="mb-4">Tigerhouse775@gmail.com</h3>
                 </div>
             </div>
         </div>

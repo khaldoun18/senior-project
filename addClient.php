@@ -85,7 +85,7 @@ if (!$mail->send()) {
 
 
 // Redirect the user back to the original page
-header("Location: admin.php");
+header("Location: adminClient.php");
 exit;
 
 

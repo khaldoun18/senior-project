@@ -55,7 +55,7 @@ if (!isset($_SESSION["admin_email"])) {
                     </a>
                 </li>
 
-                <div class="dropdown">
+                <div class="dropdown"><br>
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         <i class="icon client"></i> Clients
@@ -66,6 +66,7 @@ if (!isset($_SESSION["admin_email"])) {
                         <li><a class="dropdown-item" href="adminClientInActive.php">In Active Clients</a></li>
                         <li><a class="dropdown-item" href="adminClientBlock.php">Blocked Clients</a></li>
                         <li><a class="dropdown-item" href="adminClientReject.php">Rejected Clients</a></li>
+                        <li><a class="dropdown-item" href="clientClassRequest.php">Class Request</a></li>
                     </ul>
                 </div>
 
@@ -82,6 +83,7 @@ if (!isset($_SESSION["admin_email"])) {
                         <li><a class="dropdown-item" href="adminTrainerInActive.php">In Active Trainers</a></li>
                         <li><a class="dropdown-item" href="adminTrainerBlock.php">Blocked Trainers</a></li>
                         <li><a class="dropdown-item" href="adminTrainerReject.php">Rejected Trainer</a></li>
+                        <li><a class="dropdown-item" href="adminClassApprove.php">Class approve</a></li>
                     </ul>
                 </div>
                 <li><br><br>
@@ -92,14 +94,14 @@ if (!isset($_SESSION["admin_email"])) {
                 </li>
 
 
-                <li>
-                    <a class="btn btn-secondary" href="#">
+                <li><br>
+                    <a class="btn btn-secondary" href="allSchedule.php">
                         <img src="icon/schedule.png" alt="Schedules" class="btn-icon-schedule">
                         Schedules
                     </a>
                 </li>
 
-                <li>
+                <li><br>
                     <a class="btn btn-secondary" href="#">
                         <img src="icon/settings.png" alt="Settings" class="btn-icon-settings">
                         Settings

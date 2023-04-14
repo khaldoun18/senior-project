@@ -39,7 +39,7 @@ if (mysqli_query($conn, $sql)) {
 
 
 // Redirect the user back to the original page
-header("Location: admin.php");
+header("Location: adminClient.php");
 exit;
 
 

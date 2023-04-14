@@ -4,7 +4,7 @@ if (!isset($_SESSION["admin_email"])) {
   header("Location: signin.php");
   exit;
 }
-
+require_once "connection.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,6 +18,7 @@ if (!isset($_SESSION["admin_email"])) {
     </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="admin.css">
     <title>Document</title>
@@ -53,10 +54,12 @@ tbody tr:hover {
 .main-content {
   margin-top: 50px;
 }
+
 .img-thumbnail {
   max-width: 100px;
   max-height: 100px;
 }
+
 
 /* Remove border on top of the button */
 .table td .btn {
@@ -66,7 +69,6 @@ tbody tr:hover {
 </head>
 
 <body>
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark custom-navbar fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.php">Tiger House</a>
@@ -98,13 +100,11 @@ tbody tr:hover {
                     </a>
                 </li>
 
-
                 <div class="dropdown"><br>
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         <i class="icon client"></i> Clients
                     </button>
-
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="adminClient.php">Clients requests</a></li>
                         <li><a class="dropdown-item" href="adminClientActive.php">Active Clients</a></li>
@@ -120,6 +120,8 @@ tbody tr:hover {
                         aria-expanded="false">
                         <i class="icon trainers"></i> Trainers
                     </button>
+
+
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="adminTrainer.php">Trainers requests</a></li>
                         <li><a class="dropdown-item" href="adminTrainerActive.php">Active Trainers</a></li>
@@ -127,8 +129,8 @@ tbody tr:hover {
                         <li><a class="dropdown-item" href="adminTrainerBlock.php">Blocked Trainers</a></li>
                         <li><a class="dropdown-item" href="adminTrainerReject.php">Rejected Trainer</a></li>
                         <li><a class="dropdown-item" href="adminClassApprove.php">Class approve</a></li>
+                    </ul>
                 </div>
-
                 <li><br><br>
                     <a class="btn btn-secondary" href="manageplans.php">
                         <img src="icon/membershipplan.png" alt="Membership Plan" class="btn-icon-membership">
@@ -153,85 +155,69 @@ tbody tr:hover {
 
             </ul>
         </div>
-
         <div class="main-content">
-            <h1>Active Trainers </h1>
+        <table class="table table-bordered">
+        <?php
 
-            <div class="table-responsive">
-                    <table class="table table-striped table-bordered">
-                <tbody>
-                    <!-- Use a loop to iterate over the result set and display each row in a table row -->
-                    <?php
-     require_once "connection.php";
-     $sql = "SELECT * FROM trainer where approved=1";
-     $result=$conn->query($sql);
-     if ($result && mysqli_num_rows($result) > 0) {
-        // if there are rows, show the table header
-        echo "<thead>
-                <tr>
-                <th>Image</th>
-                <th>Trainer Id</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Specialization</th>
-                <th>yoe</th>
-                <th>Approved</th>
-                <th>Join Date</th>
-                <th>coverletter</th>
-                <th>Resme</th>
-                </tr>
-              </thead>";
-     }
-     else{
-        echo" there is no Active Trainers";
-     }?>
+$sql = "SELECT sport_client.*, client.*, trainer.*, sport.*
+FROM sport_client
+INNER JOIN client ON sport_client.client_id = client.client_id
+INNER JOIN trainer ON sport_client.trainer_id = trainer.trainer_id
+INNER JOIN sport ON sport_client.sport_id = sport.sport_id
+       
+        ORDER BY CASE 
+         WHEN sport_client.class_date LIKE '%monday%' THEN 1
+         WHEN sport_client.class_date LIKE '%tuesday%' THEN 2
+         WHEN sport_client.class_date LIKE '%wednesday%' THEN 3
+         WHEN sport_client.class_date LIKE '%thursday%' THEN 4
+         WHEN sport_client.class_date LIKE '%griday%' THEN 5
+         WHEN sport_client.class_date LIKE '%saturday%' THEN 6
+         WHEN sport_client.class_date LIKE '%sunday%' THEN 7
+         ELSE 8
+         END,sport.class_time
+";
 
-                <tbody>
-                    <?php 
-    foreach($result as $row): ?>
-                    <tr>
-                        <td><img src="<?php echo $row['image']; ?>" alt="" class="img-thumbnail"></td>
-                        <td><?php echo $row['trainer_id']; ?></td>
-                        <td><?php echo $row['trainer_name']; ?></td>
-                        <td><?php echo $row['trainer_email']; ?></td>
-                        <td><?php echo $row['phone']; ?></td>
-                        <td><?php echo $row['specialization']; ?></td>
-                        <td><?php echo $row['yoe']; ?></td>
-                        <td><?php echo $row['approved']; ?></td>
-                        <td><?php echo $row['join_date']; ?></td>
-                        <td><?php echo $row['cover_letter']; ?></td>
-                        <td><img src="<?php echo $row['resume']; ?>" alt="" class="img-thumbnail"></td>
 
-                        <td>
-                            <form method="post" action="inactiveTrainer.php">
+$result = $conn->query($sql);
+if ($result && mysqli_num_rows($result) > 0) {
 
-                                <input type="hidden" name="trainer_id" value="<?php echo $row['trainer_id']; ?>">
-                                <input type="hidden" name="name" value="<?php echo $row['trainer_name']; ?>">
-                                <input type="hidden" name="trainer_email" value="<?php echo $row['trainer_email']; ?>">
-                                <input type="hidden" name="phone" value="<?php echo $row['phone']; ?>">
-                                <input type="hidden" name="password" value="<?php echo $row['password']; ?>">
-                                <input type="hidden" name="gender" value="<?php echo $row['yoe']; ?>">
-                                <input type="hidden" name="image" value="<?php echo $row['image']; ?>">
-                                <input type="hidden" name="resume" value="<?php echo $row['resume']; ?>">
-                                <input type="hidden" name="join_date" value="<?php echo $row['join_date']; ?>">
+  echo "<thead>
+           <tr>
+               <th>date and time </th>
+               <th>Sport name</th>
+               <th>trainer</th>
+               <th>client</th>
+            
+          
+           </tr>
+         </thead>";
+         ?>
+          <tbody>
+              <?php while ($row = mysqli_fetch_assoc($result)) : ?>
+           
 
-                                <button type="submit" name="submit" class="btn btn-primary">inActivate</button>
-                            </form>
-                        </td>
-                        <td>
-                            <form method="post" action="blocktrainer.php">
 
-                                <input type="hidden" name="trainer_id" value="<?php echo $row['trainer_id']; ?>">
+          <tr>
 
-                                <button type="submit" name="submit" class="btn btn-danger">Block</button>
-                            </form>
-                        </td>
 
-                    </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+          <td><?php echo $row['class_date']; ?></td>
+           <td><?php echo $row['sport_name']; ?></td>
+           <td><?php echo $row['trainer_name']; ?></td>
+           <td><?php echo $row['name']; ?></td>
+          
+          </tr>
+
+                   
+                  </div>
+              </div>
+              <?php endwhile; ?>
+          </div>
+          <?php } else {
+  echo "No classes registered";
+} ?>
+   </tbody>
+</table>
+
         </div>
 
     </div>

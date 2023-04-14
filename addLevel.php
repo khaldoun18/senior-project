@@ -1,28 +1,17 @@
 <?php
-
 require_once "connection.php";
 
-$id = $_POST['client_id'];
-$name = $_POST['name'];
-$email = $_POST['email'];
-$phone = $_POST['phone'];
-$gender = $_POST['gender'];
-$bmi = $_POST['bmi'];
-
-$target = $_POST['image'];
+$class_request_id = $_POST['class_request_id'];
+$class_level = $_POST['class_level'];
 
 
-
-
-  
- 
 
 
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "UPDATE client SET password = '$password', approved='3' , join_date= NOW()  WHERE client_id = $id";
+$sql = "UPDATE class_request SET  class_level = '$class_level' WHERE class_request_id = $class_request_id";
 
 if (mysqli_query($conn, $sql)) {
     echo "<script>alert('You are registered')</script>";
@@ -31,15 +20,10 @@ if (mysqli_query($conn, $sql)) {
 }
 
 
-
-
-
-
-
-
+mysqli_close($conn);
 
 // Redirect the user back to the original page
-header("Location: adminClientInActive.php");
+header("Location: clientClassRequest.php");
 exit;
 
 

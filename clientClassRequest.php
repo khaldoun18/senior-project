@@ -4,7 +4,7 @@ if (!isset($_SESSION["admin_email"])) {
   header("Location: signin.php");
   exit;
 }
-
+require_once "connection.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +22,7 @@ if (!isset($_SESSION["admin_email"])) {
     <link rel="stylesheet" href="admin.css">
     <title>Document</title>
     <style>
-  table {
+      table {
   border-collapse: separate;
   border-spacing: 0; /* Add space between rows */
   width: 100%;
@@ -53,20 +53,21 @@ tbody tr:hover {
 .main-content {
   margin-top: 50px;
 }
+
 .img-thumbnail {
-  max-width: 100px;
-  max-height: 100px;
+  max-width: 50px;
+  max-height: 50px;
 }
 
 /* Remove border on top of the button */
 .table td .btn {
   border-top: none !important;
 }
+
 </style>
 </head>
 
 <body>
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark custom-navbar fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.php">Tiger House</a>
@@ -98,13 +99,11 @@ tbody tr:hover {
                     </a>
                 </li>
 
-
                 <div class="dropdown"><br>
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         <i class="icon client"></i> Clients
                     </button>
-
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="adminClient.php">Clients requests</a></li>
                         <li><a class="dropdown-item" href="adminClientActive.php">Active Clients</a></li>
@@ -120,15 +119,16 @@ tbody tr:hover {
                         aria-expanded="false">
                         <i class="icon trainers"></i> Trainers
                     </button>
+
+
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="adminTrainer.php">Trainers requests</a></li>
                         <li><a class="dropdown-item" href="adminTrainerActive.php">Active Trainers</a></li>
                         <li><a class="dropdown-item" href="adminTrainerInActive.php">In Active Trainers</a></li>
                         <li><a class="dropdown-item" href="adminTrainerBlock.php">Blocked Trainers</a></li>
                         <li><a class="dropdown-item" href="adminTrainerReject.php">Rejected Trainer</a></li>
-                        <li><a class="dropdown-item" href="adminClassApprove.php">Class approve</a></li>
+                    </ul>
                 </div>
-
                 <li><br><br>
                     <a class="btn btn-secondary" href="manageplans.php">
                         <img src="icon/membershipplan.png" alt="Membership Plan" class="btn-icon-membership">
@@ -153,85 +153,72 @@ tbody tr:hover {
 
             </ul>
         </div>
-
         <div class="main-content">
-            <h1>Active Trainers </h1>
+        <div class="table-responsive">
+                <table class="table table-striped table-bordered">
+        <?php
 
-            <div class="table-responsive">
-                    <table class="table table-striped table-bordered">
-                <tbody>
-                    <!-- Use a loop to iterate over the result set and display each row in a table row -->
-                    <?php
-     require_once "connection.php";
-     $sql = "SELECT * FROM trainer where approved=1";
-     $result=$conn->query($sql);
-     if ($result && mysqli_num_rows($result) > 0) {
-        // if there are rows, show the table header
-        echo "<thead>
-                <tr>
-                <th>Image</th>
-                <th>Trainer Id</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Specialization</th>
-                <th>yoe</th>
-                <th>Approved</th>
-                <th>Join Date</th>
-                <th>coverletter</th>
-                <th>Resme</th>
-                </tr>
-              </thead>";
-     }
-     else{
-        echo" there is no Active Trainers";
-     }?>
+$sql = "SELECT class_request.*, client.*
+        FROM class_request
+        INNER JOIN client ON client.client_id = class_request.client_id
+        where class_request.class_level = 0";
+$result = $conn->query($sql);
+if ($result && mysqli_num_rows($result) > 0) {
+  // if there are rows, show the table header
+  echo "<table>
+          <thead>
+            <tr>
+              <th>name</th>
+              <th>sport</th>
+              <th>played</th>
+              <th>goal</th>
+              <th>disabilities</th>
+              <th>years</th>
+              <th>desired level</th>
+            </tr>
+          </thead>
+          <tbody>";
+  foreach ($result as $row) : ?>
+    <tr>
+      <td><?php echo $row['name']; ?></td>
+      <td><?php echo $row['sport_name']; ?></td>
+      <td><?php echo $row['played']; ?></td>
+      <td><?php echo $row['goal']; ?></td>
+      <td><?php echo $row['disability']; ?></td>
+      <td><?php echo $row['years']; ?></td>
+   
+      <td>
+        <form method="post" action="addLevel.php">
+          <input type="hidden" name="class_request_id" value="<?php echo $row['class_request_id']; ?>">
+          <input type="number" name="class_level" value="<?php echo $row['class_level']; ?>">
+          <button type="submit" name="submit" class="btn btn-primary">Add</button>
+        </form>
+      </td>
+      <td>
+        <form method="post" action="removeRequest.php">
+          <input type="hidden" name="class_request_id" value="<?php echo $row['class_request_id']; ?>">
+          
+          <button type="submit" name="submit" class="btn btn-danger">Reject</button>
+        </form>
+      </td>
+    </tr>
+  <?php endforeach;
+  // Close the table body and table
+  echo "</tbody>
+        </table>";
+} else {
+  echo "There are no requests";
+}
+?>
+</tbody>
+</table>
 
-                <tbody>
-                    <?php 
-    foreach($result as $row): ?>
-                    <tr>
-                        <td><img src="<?php echo $row['image']; ?>" alt="" class="img-thumbnail"></td>
-                        <td><?php echo $row['trainer_id']; ?></td>
-                        <td><?php echo $row['trainer_name']; ?></td>
-                        <td><?php echo $row['trainer_email']; ?></td>
-                        <td><?php echo $row['phone']; ?></td>
-                        <td><?php echo $row['specialization']; ?></td>
-                        <td><?php echo $row['yoe']; ?></td>
-                        <td><?php echo $row['approved']; ?></td>
-                        <td><?php echo $row['join_date']; ?></td>
-                        <td><?php echo $row['cover_letter']; ?></td>
-                        <td><img src="<?php echo $row['resume']; ?>" alt="" class="img-thumbnail"></td>
 
-                        <td>
-                            <form method="post" action="inactiveTrainer.php">
 
-                                <input type="hidden" name="trainer_id" value="<?php echo $row['trainer_id']; ?>">
-                                <input type="hidden" name="name" value="<?php echo $row['trainer_name']; ?>">
-                                <input type="hidden" name="trainer_email" value="<?php echo $row['trainer_email']; ?>">
-                                <input type="hidden" name="phone" value="<?php echo $row['phone']; ?>">
-                                <input type="hidden" name="password" value="<?php echo $row['password']; ?>">
-                                <input type="hidden" name="gender" value="<?php echo $row['yoe']; ?>">
-                                <input type="hidden" name="image" value="<?php echo $row['image']; ?>">
-                                <input type="hidden" name="resume" value="<?php echo $row['resume']; ?>">
-                                <input type="hidden" name="join_date" value="<?php echo $row['join_date']; ?>">
 
-                                <button type="submit" name="submit" class="btn btn-primary">inActivate</button>
-                            </form>
-                        </td>
-                        <td>
-                            <form method="post" action="blocktrainer.php">
 
-                                <input type="hidden" name="trainer_id" value="<?php echo $row['trainer_id']; ?>">
+</div>
 
-                                <button type="submit" name="submit" class="btn btn-danger">Block</button>
-                            </form>
-                        </td>
-
-                    </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
         </div>
 
     </div>

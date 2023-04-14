@@ -44,7 +44,7 @@ if (mysqli_query($conn, $sql)) {
 mysqli_close($conn);
 
 // Redirect the user back to the original page
-header("Location: admin.php");
+header("Location: adminTrainer.php");
 exit;
 
 
