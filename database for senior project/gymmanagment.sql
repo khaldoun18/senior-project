@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 13, 2023 at 06:11 PM
+-- Generation Time: Apr 10, 2023 at 04:11 PM
 -- Server version: 10.4.27-MariaDB
--- PHP Version: 8.1.12
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -60,7 +60,19 @@ CREATE TABLE `bmi` (
 --
 
 INSERT INTO `bmi` (`bmi_id`, `client_id`, `height`, `weight`, `date`) VALUES
-(34, 32, 1.7, 90, '2023-04-13 15:25:57');
+(5, 12, 1.8, 60, '2023-03-15 17:30:35'),
+(6, 13, 1.8, 60, '2023-03-17 13:39:55'),
+(7, 14, 1.8, 60, '2023-04-01 08:33:42'),
+(8, 15, 1.8, 60, '2023-04-01 11:21:31'),
+(9, 16, 1.7, 80, '2023-04-07 23:52:46'),
+(10, 17, 1.7, 323, '2023-04-08 00:58:46'),
+(11, 18, 1.7, 88, '2023-04-08 01:00:09'),
+(12, 19, 1.7, 80, '2023-04-08 03:02:58'),
+(13, 20, 1.7, 213, '2023-04-08 03:20:47'),
+(14, 21, 1.7, 23123, '2023-04-08 03:42:41'),
+(15, 22, 1.7, 88, '2023-04-08 04:46:38'),
+(16, 23, 1.7, 90, '2023-04-10 11:53:02'),
+(17, 24, 1.7, 80, '2023-04-10 13:56:39');
 
 -- --------------------------------------------------------
 
@@ -84,8 +96,7 @@ CREATE TABLE `class_request` (
 --
 
 INSERT INTO `class_request` (`class_request_id`, `sport_name`, `played`, `goal`, `disability`, `client_id`, `years`, `class_level`) VALUES
-(39, 'kickboxing', 'yes', 'fitness', 'no', 32, 1, 1),
-(40, 'zumba', 'yes', 'fitness', 'no', 32, 1, 1);
+(9, 'kickboxing', 'yes', 'fitness', 'no', 24, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -112,7 +123,7 @@ CREATE TABLE `client` (
 --
 
 INSERT INTO `client` (`client_id`, `name`, `email`, `password`, `phone`, `address`, `join_date`, `approved`, `image`, `gender`, `client_dob`) VALUES
-(32, 'FAYEZ', 'FAYEZSLIM18@GMAIL.COM', '123', '70545492', 'haret hreik', '2023-04-13 15:26:09', 1, 'userimage/download.jpg', 'male', '1997-07-18');
+(24, 'fayez', 'FAYEZSLIM18@GMAIL.COM', '12345', '70545492', 'HARET', '2023-04-10 13:57:11', 1, 'userimage/dashboard.png', 'male', '1997-07-18');
 
 -- --------------------------------------------------------
 
@@ -145,8 +156,8 @@ CREATE TABLE `package` (
 --
 
 INSERT INTO `package` (`package_id`, `price`, `sessions`, `package_description`) VALUES
-(11, 120, 6, 'swimm'),
-(12, 150, 10, 'boxing');
+(8, 67, 44, 'ghghghg'),
+(9, 55, 7, 'gfgfgfg');
 
 -- --------------------------------------------------------
 
@@ -198,18 +209,9 @@ CREATE TABLE `sport` (
 --
 
 INSERT INTO `sport` (`sport_id`, `sport_name`, `level`, `class_date`, `trainer_id`, `class_time`, `class_approve`) VALUES
-(108, 'kickboxing', 1, 'monday 8:00:00', 50, '08:00:00', 1),
-(109, 'zumba', 1, 'tuesday 8:00:00', 50, '08:00:00', 1),
-(110, 'kickboxing', 1, 'monday 8:00:00', 51, '08:00:00', 1),
-(111, 'kickboxing', 1, 'monday 9:30:00', 51, '09:30:00', 1),
-(112, 'kickboxing', 1, 'monday 17:00:00', 51, '17:00:00', 1),
-(113, 'kickboxing', 1, 'monday 18:30:00', 51, '18:30:00', 1),
-(114, 'kickboxing', 1, 'monday 20:00:00', 51, '20:00:00', 1),
-(115, 'zumba', 1, 'tuesday 20:00:00', 51, '20:00:00', 1),
-(116, 'zumba', 1, 'tuesday 18:30:00', 51, '18:30:00', 1),
-(117, 'zumba', 1, 'tuesday 17:00:00', 51, '17:00:00', 1),
-(118, 'zumba', 1, 'tuesday 9:30:00', 51, '09:30:00', 1),
-(119, 'zumba', 1, 'tuesday 8:00:00', 51, '08:00:00', 1);
+(49, 'kickboxing', 1, 'monday 8:00:00', 46, '08:00:00', 1),
+(50, 'kickboxing', 2, 'monday 9:30:00', 46, '09:30:00', 1),
+(51, 'zumba', 1, 'monday 17:00:00', 46, '17:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -230,11 +232,7 @@ CREATE TABLE `sport_client` (
 --
 
 INSERT INTO `sport_client` (`sport_client_id`, `client_id`, `sport_id`, `class_date`, `trainer_id`) VALUES
-(126, 32, 108, 'monday 8:00:00', 50),
-(127, 32, 109, 'tuesday 8:00:00', 50),
-(128, 32, 112, 'monday 17:00:00', 51),
-(129, 32, 117, 'tuesday 17:00:00', 51),
-(130, 32, 118, 'tuesday 9:30:00', 51);
+(92, 24, 49, 'monday 8:00:00', 46);
 
 -- --------------------------------------------------------
 
@@ -263,8 +261,7 @@ CREATE TABLE `trainer` (
 --
 
 INSERT INTO `trainer` (`trainer_id`, `trainer_name`, `trainer_email`, `password`, `specialization`, `approved`, `yoe`, `cover_letter`, `resume`, `image`, `phone`, `join_date`, `trainer_dob`) VALUES
-(50, 'fayez slim', 'fayezslim18@gmail.com', '1234', 'zumba', 1, 2, 'test', 'resume/download.jpg', 'trainerpic/download.jpg', 70545492, '2023-04-13', 1997),
-(51, 'ali', 'ali@ali.com', '12345', 'kickboxing', 1, 1, 'dfaf', 'resume/download.jpg', 'trainerpic/download.jpg', 12345678, '2023-04-13', 1918);
+(46, 'FAYEZ SLIM', 'FAYEZSLIM18@GMAIL.COM', '123456', 'kickboxing', 1, 21, 'fdsdfs', 'resume/dashboard.png', 'trainerpic/dashboard.png', 70545492, '2023-04-10', 1997);
 
 --
 -- Indexes for dumped tables
@@ -355,19 +352,19 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `bmi`
 --
 ALTER TABLE `bmi`
-  MODIFY `bmi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `bmi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `class_request`
 --
 ALTER TABLE `class_request`
-  MODIFY `class_request_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `class_request_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `client`
 --
 ALTER TABLE `client`
-  MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `client_level`
@@ -379,7 +376,7 @@ ALTER TABLE `client_level`
 -- AUTO_INCREMENT for table `package`
 --
 ALTER TABLE `package`
-  MODIFY `package_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `package_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `payment`
@@ -397,19 +394,19 @@ ALTER TABLE `schedule`
 -- AUTO_INCREMENT for table `sport`
 --
 ALTER TABLE `sport`
-  MODIFY `sport_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
+  MODIFY `sport_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `sport_client`
 --
 ALTER TABLE `sport_client`
-  MODIFY `sport_client_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
+  MODIFY `sport_client_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- AUTO_INCREMENT for table `trainer`
 --
 ALTER TABLE `trainer`
-  MODIFY `trainer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `trainer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
